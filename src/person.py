@@ -107,19 +107,21 @@ class _Academic_title_default:
 
     def degree_title(self) -> None:
         if self.academic_title is not None:
-            if ".D" in self.academic_title:
-                self.academic_title = ". ".join(
-                    c for c in self.academic_title.split(".")
-                )
-            if ".A" in self.academic_title:
-                self.academic_title = ". ".join(
-                    c for c in self.academic_title.split(".")
-                )
-            if self.academic_title.endswith("Dr"):
-                self.academic_title = self.academic_title[:-2] + "Dr."
-            while "  " in self.academic_title:
-                self.academic_title = self.academic_title.replace("  ", " ")
-            self.academic_title = self.academic_title.strip()
+            title = self.academic_title
+            self.academic_title = self.title_repair(title)
+
+    def title_repair(self, title) -> str:
+        if ".D" in title:
+            title = ". ".join(c for c in title.split("."))
+        if ".A" in title:
+            title = ". ".join(c for c in title.split("."))
+        if title.endswith("Dr"):
+            title = title[:-2] + "Dr."
+        while "  " in title:
+            title = title.replace("  ", " ")
+        title = title.strip()
+
+        return title
 
 
 @dataclass
