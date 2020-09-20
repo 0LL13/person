@@ -1,12 +1,15 @@
 #!/usr/bin/env python
 # test_person.py
 """Tests for `person` package."""
-# pylint: disable=redefined-outer-name
+from dataclasses import dataclass
 
 import pytest
+from context import constants  # noqa
+from context import helpers  # noqa
+from context import person
 
-from person import person
-from person.person import NotGermanParty, Party
+# pylint: disable=redefined-outer-name
+
 
 names = [
     ["Alfons-Reimund Horst Emil", "Boeselager"],
@@ -130,9 +133,9 @@ def test_person_Politician(politician_fixture):
     # pylint: disable=W0612, W0613
 
     pol_1 = person.Politician(
-        "CDU",
         "Regina",
         "Dinther",
+        "CDU",
         peer_title="van",
         electoral_ward="Rhein-Sieg-Kreis IV",
     )
@@ -148,73 +151,89 @@ def test_person_Politician(politician_fixture):
     pol_1.party_name = "fraktionslos"
     assert pol_1.party_name == "fraktionslos"
     assert pol_1.parties == [
-        Party(party_name="CDU", party_entry="unknown", party_exit="unknown")
+        helpers.Party(
+            party_name="CDU", party_entry="unknown", party_exit="unknown"
+        )  # noqa
     ]  # noqa
 
     pol_2 = person.Politician(
-        "CDU",
         "Regina",
         "Dinther",
+        "CDU",
         electoral_ward="Landesliste",
     )  # noqa
 
     assert pol_2.electoral_ward == "ew"
 
     pol_3 = person.Politician(
-        "Piraten", "Heiner", "Wiekeiner", electoral_ward="Kreis Aachen I"
+        "Heiner", "Wiekeiner", "Piraten", electoral_ward="Kreis Aachen I"
     )  # noqa
 
     assert pol_3.voter_count == 116389
 
-    with pytest.raises(NotGermanParty):
-        pol_4 = person.Politician("not_a_German_party", "Thomas", "Gschwindner")  # noqa
+    with pytest.raises(helpers.NotGermanParty):
+        pol_4 = person.Politician("Thomas", "Gschwindner", "not_a_German_party")  # noqa
 
-    pol_4 = person.Politician("FDP", "Thomas", "Gschwindner")
+    pol_4 = person.Politician("Thomas", "Gschwindner", "FDP")
     pol_4.add_Party("FDP")
 
     assert pol_4.party_name == "FDP"
     assert pol_4.parties == [
-        Party(party_name="FDP", party_entry="unknown", party_exit="unknown")
+        helpers.Party(
+            party_name="FDP", party_entry="unknown", party_exit="unknown"
+        )  # noqa
     ]  # noqa
 
     pol_4.add_Party("not_a_German_party")
 
     assert pol_4.party_name == "FDP"
     assert pol_4.parties == [
-        Party(party_name="FDP", party_entry="unknown", party_exit="unknown")
+        helpers.Party(
+            party_name="FDP", party_entry="unknown", party_exit="unknown"
+        )  # noqa
     ]  # noqa
 
     pol_4.add_Party("AfD")
 
     assert pol_4.parties == [
-        Party(party_name="FDP", party_entry="unknown", party_exit="unknown"),
-        Party(party_name="AfD", party_entry="unknown", party_exit="unknown"),
+        helpers.Party(
+            party_name="FDP", party_entry="unknown", party_exit="unknown"
+        ),  # noqa
+        helpers.Party(
+            party_name="AfD", party_entry="unknown", party_exit="unknown"
+        ),  # noqa
     ]
 
     pol_4.add_Party("AfD", party_entry="2019")
 
     assert pol_4.party_entry == "2019"
     assert pol_4.parties == [
-        Party(party_name="FDP", party_entry="unknown", party_exit="unknown"),
-        Party(party_name="AfD", party_entry="2019", party_exit="unknown"),
+        helpers.Party(
+            party_name="FDP", party_entry="unknown", party_exit="unknown"
+        ),  # noqa
+        helpers.Party(
+            party_name="AfD", party_entry="2019", party_exit="unknown"
+        ),  # noqa
     ]
 
     pol_4.add_Party("AfD", party_entry="2019", party_exit="2020")
 
     assert pol_4.party_exit == "2020"
     assert pol_4.parties == [
-        Party(party_name="FDP", party_entry="unknown", party_exit="unknown"),
-        Party(party_name="AfD", party_entry="2019", party_exit="2020"),
+        helpers.Party(
+            party_name="FDP", party_entry="unknown", party_exit="unknown"
+        ),  # noqa
+        helpers.Party(party_name="AfD", party_entry="2019", party_exit="2020"),
     ]
 
     pol_5 = person.Politician(
-        "Linke", "Heiner", "Wiekeiner", electoral_ward="Köln I"
+        "Heiner", "Wiekeiner", "Linke", electoral_ward="Köln I"
     )  # noqa
 
     assert pol_5.ward_no == 13
     assert pol_5.voter_count == 121721
 
-    pol_6 = person.Politician("Grüne", "Heiner", "Wiekeiner")
+    pol_6 = person.Politician("Heiner", "Wiekeiner", "Grüne")
 
     assert pol_6.electoral_ward == "ew"
     assert pol_6.ward_no is None
@@ -233,9 +252,9 @@ def test_person_MdL(mdl_fixture):
     mdl = person.MdL(
         "14",
         "NRW",
-        "Grüne",
         "Alfons-Reimund",
         "Hubbeldubbel",
+        "Grüne",
         peer_title="auf der",
         electoral_ward="Ennepe-Ruhr-Kreis I",
         minister="JM",
@@ -248,7 +267,9 @@ def test_person_MdL(mdl_fixture):
     assert mdl.peer_preposition == "auf der"
     assert mdl.party_name == "Grüne"
     assert mdl.parties == [
-        Party(party_name="Grüne", party_entry="unknown", party_exit="unknown")
+        helpers.Party(
+            party_name="Grüne", party_entry="unknown", party_exit="unknown"
+        )  # noqa
     ]  # noqa
     assert mdl.ward_no == 105
     assert mdl.minister == "JM"
@@ -256,8 +277,10 @@ def test_person_MdL(mdl_fixture):
     mdl.add_Party("fraktionslos")
     assert mdl.party_name == "fraktionslos"
     assert mdl.parties == [
-        Party(party_name="Grüne", party_entry="unknown", party_exit="unknown"),
-        Party(
+        helpers.Party(
+            party_name="Grüne", party_entry="unknown", party_exit="unknown"
+        ),  # noqa
+        helpers.Party(
             party_name="fraktionslos",
             party_entry="unknown",
             party_exit="unknown",  # noqa
@@ -268,33 +291,24 @@ def test_person_MdL(mdl_fixture):
 def test_person_TooManyFirstNames(toomanyfirstnames_fixture):
     # pylint: disable=W0612, W0613
 
-    from person.person import TooManyFirstNames
-
     name = person.Name
-    with pytest.raises(TooManyFirstNames):
+    with pytest.raises(helpers.TooManyFirstNames):
         name("Alfons-Reimund Horst Emil Pupsi", "Schulze")
 
 
 def test_person_NotInRangeError(notinrange_fixture):
     # pylint: disable=W0612, W0613
-
-    from person.person import NotInRange
-
     mdl = person.MdL
 
-    with pytest.raises(NotInRange):
+    with pytest.raises(helpers.NotInRange):
         mdl("100", "NRW", "SPD", "Alfons-Reimund", "Hubbeldubbel")
 
 
 def test_person_AttrDisplay(capsys, attrdisplay_fixture):
     # pylint: disable=W0612, W0613
 
-    from dataclasses import dataclass
-
-    from person.person import AttrDisplay
-
     @dataclass
-    class MockClass(AttrDisplay):
+    class MockClass(helpers.AttrDisplay):
         a: str
         b: str
         c: str

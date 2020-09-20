@@ -1,66 +1,34 @@
-# .py
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+A set of dataclasses concerning roles of persons and their particulars.
+"""
 import datetime
+import os
+import sys
 from dataclasses import dataclass, field
 from typing import List, Optional, Set
 
 from gender_guesser import detector as sex  # type: ignore
 
+PACKAGE_PARENT = ".."
+SCRIPT_DIR = os.path.dirname(
+    os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__)))
+)  # isort:skip # noqa # pylint: disable=wrong-import-position
+sys.path.append(
+    os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT))
+)  # isort: skip # noqa # pylint: disable=wrong-import-position
 
-class NotInRange(Exception):
-    pass
-
-
-class NotGermanParty(Exception):
-    pass
-
-
-class TooManyFirstNames(Exception):
-
-    """
-    Currently only one first name and two middle names are supported.
-    Example: Tom H. Paul last_name
-    """
-
-    def __init__(self, message):
-        """use like: raise TooManyFirstNames ("message")"""
-        print(message)
-
-
-class AttrDisplay:
-
-    """
-    Mark Lutz, Programming Python
-    Provides an inheritable display overload method that shows instances
-    with their class names and a name=value pair for each attribute stored
-    on the instance itself (but not attrs inherited from its classes). Can
-    be mixed into any class, and will work on any instance.
-    """
-
-    def gatherAttrs(self) -> list:
-        attrs = []
-        for key in sorted(self.__dict__):
-            if self.__dict__[key] and self.__dict__[key] not in [
-                "unknown",
-                "ew",
-                None,
-            ]:
-                attrs.append(f"{key}={getattr(self, key)}")
-        return attrs
-
-    def __str__(self) -> str:
-        """
-        Instances will printed like this:
-            class name
-            attr1=value1
-            attr2=value2
-            ...
-        """
-        comp_repr = (
-            f"{self.__class__.__name__}:\n"
-            + "\n".join(str(attr) for attr in self.gatherAttrs())
-            + "\n"
-        )
-        return comp_repr
+from src.resources.constants import GERMAN_PARTIES  # type: ignore  # noqa
+from src.resources.constants import PEER_PREPOSITIONS  # type: ignore # noqa
+from src.resources.constants import PEERTITLES  # type: ignore # noqa
+from src.resources.helpers import (  # type: ignore # noqa; type: ignore # noqa; type: ignore  # noqa; type: ignore # noqa
+    AttrDisplay,
+    NotInRange,
+    Party,
+    TooManyFirstNames,
+)
 
 
 @dataclass
@@ -110,46 +78,6 @@ class Name(_Name_default, _Name_base, AttrDisplay):
 class _Peertitle_default:
     peer_title: Optional[str] = field(default=None)
     peer_preposition: Optional[str] = field(default=None)
-    PEER_PREPOSITIONS = [
-        "von",
-        "van",
-        "de",
-        "zu",
-        "dos",
-        "auf",
-        "der",
-        "und",
-        "vom",
-        "den",
-    ]
-    PEERTITLES = [
-        "Freifrau",
-        "Freiherr",
-        "Graf",
-        "Gräfin",
-        "Herzogin",
-        "Herzog",
-        "Baronin",
-        "Baron",
-        "Erzherzog",
-        "Erzherzogin",
-        "Großherzog",
-        "Großherzogin",
-        "Kurfürst",
-        "Kurfürstin",
-        "Landgraf",
-        "Landgräfin",
-        "Pfalzgraf",
-        "Pfalzgräfin",
-        "Fürst",
-        "Fürstin",
-        "Markgraf",
-        "Markgräfin",
-        "Ritter",
-        "Edler",
-        "Junker",
-        "Landmann",
-    ]
 
     def title(self) -> None:
         if self.peer_title is not None:
@@ -157,9 +85,9 @@ class _Peertitle_default:
             peer_title = ""
             peer_preposition = ""
             for prep in titles:
-                if prep.lower() in self.PEER_PREPOSITIONS:
+                if prep.lower() in PEER_PREPOSITIONS:
                     peer_preposition = peer_preposition + prep.lower() + " "
-                elif prep in self.PEERTITLES:
+                elif prep in PEERTITLES:
                     peer_title = peer_title + prep + " "
             self.peer_preposition = peer_preposition.strip()
             self.peer_title = peer_title.strip()
@@ -254,46 +182,6 @@ class Person(
 
 
 @dataclass
-class _Party_base:
-    party_name: str
-    GERMAN_PARTIES = [
-        "SPD",
-        "CDU",
-        "FDP",
-        "F.D.P.",
-        "GRÜNE",
-        "Grüne",
-        "Bündnis 90/Die Grünen",
-        "AfD",
-        "Die Partei",
-        "PIRATEN",
-        "Piraten",
-        "LINKE",
-        "Linke",
-        "CSU",
-        "DIE PARTEI",
-        "Volt",
-        "ÖDP",
-        "Tierschutzpartei",
-        "Familie",
-        "fraktionslos",
-    ]
-
-
-@dataclass
-class _Party_default:
-    party_entry: str = field(default="unknown")
-    party_exit: str = field(default="unknown")
-
-
-@dataclass
-class Party(_Party_default, _Party_base, AttrDisplay):
-    def __post_init__(self):
-        if self.party_name not in self.GERMAN_PARTIES:
-            raise NotGermanParty
-
-
-@dataclass
 class _Politician_default:
     electoral_ward: str = field(default="ew")
     ward_no: Optional[int] = field(default=None)
@@ -303,11 +191,6 @@ class _Politician_default:
     parties: List[str] = field(default_factory=lambda: [])
 
     def renamed_wards(self):
-        renamed_wards = [
-            "Kreis Aachen I",
-            "Hochsauerlandkreis II – Soest III",
-            "Kreis Aachen II",
-        ]
         wards = {
             "Kreis Aachen I": "Aachen III",
             "Hochsauerlandkreis II – Soest III": "Hochsauerlandkreis II",
@@ -315,7 +198,7 @@ class _Politician_default:
             if self.last_name in ["Wirtz", "Weidenhaupt"]
             else "Kreis Aachen I",
         }
-        if self.electoral_ward in renamed_wards:
+        if self.electoral_ward in wards.keys():
             self.electoral_ward = wards[self.electoral_ward]
 
     def scrape_wiki_for_ward(self):
@@ -349,9 +232,9 @@ class Politician(
     _Academic_title_default,
     _Person_default,
     _Politician_default,
-    _Party_default,
-    Name,
-    _Party_base,
+    _Name_default,
+    Party,
+    _Name_base,
     AttrDisplay,
 ):
     def __post_init__(self):
@@ -362,7 +245,7 @@ class Politician(
         Person.get_sex(self)
         Person.get_age(self)
         self.change_ward()
-        if self.party_name in self.GERMAN_PARTIES:
+        if self.party_name in GERMAN_PARTIES:
             self.parties.append(
                 Party(self.party_name, self.party_entry, self.party_exit)
             )
@@ -372,7 +255,7 @@ class Politician(
     def add_Party(
         self, party_name, party_entry="unknown", party_exit="unknown"
     ):  # noqa
-        if party_name in self.GERMAN_PARTIES:
+        if party_name in GERMAN_PARTIES:
             if self.party_is_in_parties(party_name, party_entry, party_exit):
                 pass
             else:
@@ -462,9 +345,9 @@ if __name__ == "__main__":
     print(person_1)
 
     politician = Politician(
-        "SPD",
         "Bärbel",
         "Gutherz",
+        "SPD",
         academic_title="Dr.",
         born="1980",
         electoral_ward="Köln I",
@@ -474,10 +357,10 @@ if __name__ == "__main__":
     mdl = MdL(
         14,
         "NRW",
-        "SPD",
         "Tom",
         "Schwadronius",
-        party_entry="1990",
+        "SPD",
+        party_entry="1990",  # type: ignore
         peer_title="Junker von",
         born="1950",
     )

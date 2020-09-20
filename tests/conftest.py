@@ -1,9 +1,6 @@
 # conftest.py
-# import builtins
-# import io
 import logging
 
-# import os
 import pytest
 
 LOGGER = logging.getLogger(__name__)

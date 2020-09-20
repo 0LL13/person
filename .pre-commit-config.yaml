@@ -6,7 +6,9 @@ repos:
     name: isort
     stages: [commit]
     language: system
-    entry: pipenv run isort
+    # running isort with these settings to avoid clash with black
+    # see: https://copdips.com/2020/04/making-isort-compatible-with-black.html
+    entry: pipenv run isort -m 3 -tc
     types: [python]
 
   - id: black
