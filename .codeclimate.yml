@@ -15,6 +15,7 @@ exclude_patterns:
 - **/spec/
 - **/test/
 - **/tests/
+- **/reports/
 - Tests/
 - **/vendor/
 - **/*_test.go
