@@ -221,6 +221,9 @@ class _Politician_default:
         req = requests.get(URL)
         bsObj = BeautifulSoup(req.text, "lxml")
         table = bsObj.find(class_="infobox float-right toptextcells")
+        self.scrape_wiki_table_for_ward(table)
+
+    def scrape_wiki_table_for_ward(self, table):
         for td in table.find_all("td"):
             if "Wahlkreisnummer" in td.text:
                 ward_no = td.find_next().text.strip()
