@@ -246,10 +246,10 @@ def test_person_Politician(politician_fixture):
     assert pol_6.voter_count == 104181
 
 
-def test_person_MdL(mdl_fixture):
+def test_person_MoP(mop_fixture):
     # pylint: disable=W0612, W0613
 
-    mdl = person.MdL(
+    mop = person.MoP(
         "14",
         "NRW",
         "Alfons-Reimund",
@@ -260,23 +260,23 @@ def test_person_MdL(mdl_fixture):
         minister="JM",
     )
 
-    assert mdl.legislature == "14"
-    assert mdl.first_name == "Alfons-Reimund"
-    assert mdl.last_name == "Hubbeldubbel"
-    assert mdl.gender == "male"
-    assert mdl.peer_preposition == "auf der"
-    assert mdl.party_name == "Grüne"
-    assert mdl.parties == [
+    assert mop.legislature == "14"
+    assert mop.first_name == "Alfons-Reimund"
+    assert mop.last_name == "Hubbeldubbel"
+    assert mop.gender == "male"
+    assert mop.peer_preposition == "auf der"
+    assert mop.party_name == "Grüne"
+    assert mop.parties == [
         helpers.Party(
             party_name="Grüne", party_entry="unknown", party_exit="unknown"
         )  # noqa
     ]  # noqa
-    assert mdl.ward_no == 105
-    assert mdl.minister == "JM"
+    assert mop.ward_no == 105
+    assert mop.minister == "JM"
 
-    mdl.add_Party("fraktionslos")
-    assert mdl.party_name == "fraktionslos"
-    assert mdl.parties == [
+    mop.add_Party("fraktionslos")
+    assert mop.party_name == "fraktionslos"
+    assert mop.parties == [
         helpers.Party(
             party_name="Grüne", party_entry="unknown", party_exit="unknown"
         ),  # noqa
@@ -298,10 +298,10 @@ def test_person_TooManyFirstNames(toomanyfirstnames_fixture):
 
 def test_person_NotInRangeError(notinrange_fixture):
     # pylint: disable=W0612, W0613
-    mdl = person.MdL
+    mop = person.MoP
 
     with pytest.raises(helpers.NotInRange):
-        mdl("100", "NRW", "SPD", "Alfons-Reimund", "Hubbeldubbel")
+        mop("100", "NRW", "SPD", "Alfons-Reimund", "Hubbeldubbel")
 
 
 def test_person_AttrDisplay(capsys, attrdisplay_fixture):

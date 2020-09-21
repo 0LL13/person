@@ -49,10 +49,10 @@ def politician_fixture():
 
 
 @pytest.fixture(scope="function")
-def mdl_fixture():
-    LOGGER.info("Setting Up MdL Fixture ...")
+def mop_fixture():
+    LOGGER.info("Setting Up MoP Fixture ...")
     yield
-    LOGGER.info("Tearing Down MdL Fixture ...")
+    LOGGER.info("Tearing Down MoP Fixture ...")
 
 
 @pytest.fixture(scope="function")

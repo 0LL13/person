@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """
 A set of dataclasses concerning roles of persons and their particulars.
 """
@@ -313,7 +312,7 @@ class Politician(
 
 
 @dataclass
-class _MdL_default:
+class _MoP_default:
     parl_pres: bool = field(default=False)
     parl_vicePres: bool = field(default=False)
     parliament_entry: str = field(default="unknown")  # date string: "11.3.2015"  # noqa
@@ -330,13 +329,13 @@ class _MdL_default:
 
 
 @dataclass
-class _MdL_base:
+class _MoP_base:
     legislature: int
     state: str  # this would be "NRW", "BY", ...
 
 
 @dataclass
-class MdL(_MdL_default, Politician, _MdL_base, AttrDisplay):
+class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
     def __post_init__(self):
         if int(self.legislature) not in range(14, 18):
             raise NotInRange("Number for legislature not in range")
@@ -369,7 +368,7 @@ if __name__ == "__main__":
     )
     print(politician)
 
-    mdl = MdL(
+    mop = MoP(
         14,
         "NRW",
         "Tom",
@@ -379,8 +378,8 @@ if __name__ == "__main__":
         peer_title="Junker von",
         born="1950",
     )
-    print(mdl)
+    print(mop)
 
-    mdl.add_Party("Grüne", party_entry="30.11.1999")
-    mdl.change_ward("Düsseldorf II")
-    print(mdl)
+    mop.add_Party("Grüne", party_entry="30.11.1999")
+    mop.change_ward("Düsseldorf II")
+    print(mop)
