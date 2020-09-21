@@ -212,7 +212,7 @@ class _Politician_default:
         if self.electoral_ward in wards.keys():
             self.electoral_ward = wards[self.electoral_ward]
 
-    def scrape_wiki_for_ward(self):
+    def scrape_wiki_for_ward(self) -> None:
         import requests
         from bs4 import BeautifulSoup  # type: ignore
 
@@ -223,7 +223,7 @@ class _Politician_default:
         table = bsObj.find(class_="infobox float-right toptextcells")
         self.scrape_wiki_table_for_ward(table)
 
-    def scrape_wiki_table_for_ward(self, table):
+    def scrape_wiki_table_for_ward(self, table) -> None:
         for td in table.find_all("td"):
             if "Wahlkreisnummer" in td.text:
                 ward_no = td.find_next().text.strip()
@@ -231,13 +231,17 @@ class _Politician_default:
                 self.ward_no = int(ward_no)
             elif "Wahlberechtigte" in td.text:
                 voter_count = td.find_next().text.strip()
-                if voter_count[-1] == "]":
-                    voter_count = voter_count[:-3]
-                if " " in voter_count:
-                    voter_count = "".join(voter_count.split(" "))
-                else:
-                    voter_count = "".join(voter_count.split("."))
+                voter_count = self.fix_voter_count(voter_count)
                 self.voter_count = int(voter_count)
+
+    def fix_voter_count(self, voter_count):
+        if voter_count[-1] == "]":
+            voter_count = voter_count[:-3]
+        if " " in voter_count:
+            voter_count = "".join(voter_count.split(" "))
+        else:
+            voter_count = "".join(voter_count.split("."))
+        return voter_count
 
 
 @dataclass
