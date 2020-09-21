@@ -8,7 +8,7 @@ import datetime
 import os
 import sys
 from dataclasses import dataclass, field
-from typing import List, Optional, Set
+from typing import List, Optional, Set, Tuple
 
 from gender_guesser import detector as sex  # type: ignore
 
@@ -79,18 +79,27 @@ class _Peertitle_default:
     peer_title: Optional[str] = field(default=None)
     peer_preposition: Optional[str] = field(default=None)
 
-    def title(self) -> None:
+    def nobility_title(self) -> None:
         if self.peer_title is not None:
-            titles = self.peer_title.split(" ")
-            peer_title = ""
-            peer_preposition = ""
-            for prep in titles:
-                if prep.lower() in PEER_PREPOSITIONS:
-                    peer_preposition = peer_preposition + prep.lower() + " "
-                elif prep in PEERTITLES:
-                    peer_title = peer_title + prep + " "
-            self.peer_preposition = peer_preposition.strip()
-            self.peer_title = peer_title.strip()
+            title = self.peer_title
+            print("title", title)
+            self.peer_title, self.peer_preposition = self.title_fix(title)
+
+    def title_fix(self, title) -> Tuple[str, str]:
+        titles = title.split(" ")
+        title_tmp = ""
+        preposition_tmp = ""
+        for prep in titles:
+            if prep.lower() in PEER_PREPOSITIONS:
+                preposition_tmp = preposition_tmp + prep.lower() + " "
+            elif prep in PEERTITLES:
+                title_tmp = title_tmp + prep + " "
+        peer_preposition = preposition_tmp.strip()
+        peer_title = title_tmp.strip()
+        print("peer_title", peer_title)
+        print("peer_prep", peer_preposition)
+
+        return peer_title, peer_preposition
 
 
 @dataclass
@@ -98,7 +107,7 @@ class Noble(_Peertitle_default, Name, AttrDisplay):
     def __post_init__(self):
         """Initialize names and titles."""
         Name.__post_init__(self)
-        self.title()
+        self.nobility_title()
 
 
 @dataclass
