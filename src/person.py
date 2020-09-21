@@ -82,7 +82,6 @@ class _Peertitle_default:
     def nobility_title(self) -> None:
         if self.peer_title is not None:
             title = self.peer_title
-            print("title", title)
             self.peer_title, self.peer_preposition = self.title_fix(title)
 
     def title_fix(self, title) -> Tuple[str, str]:
@@ -96,8 +95,6 @@ class _Peertitle_default:
                 title_tmp = title_tmp + prep + " "
         peer_preposition = preposition_tmp.strip()
         peer_title = title_tmp.strip()
-        print("peer_title", peer_title)
-        print("peer_prep", peer_preposition)
 
         return peer_title, peer_preposition
 
