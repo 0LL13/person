@@ -246,62 +246,12 @@ def test_person_Politician(politician_fixture):
     assert pol_6.voter_count == 104181
 
 
-def test_person_MoP(mop_fixture):
-    # pylint: disable=W0612, W0613
-
-    mop = person.MoP(
-        "14",
-        "NRW",
-        "Alfons-Reimund",
-        "Hubbeldubbel",
-        "Grüne",
-        peer_title="auf der",
-        electoral_ward="Ennepe-Ruhr-Kreis I",
-        minister="JM",
-    )
-
-    assert mop.legislature == "14"
-    assert mop.first_name == "Alfons-Reimund"
-    assert mop.last_name == "Hubbeldubbel"
-    assert mop.gender == "male"
-    assert mop.peer_preposition == "auf der"
-    assert mop.party_name == "Grüne"
-    assert mop.parties == [
-        helpers.Party(
-            party_name="Grüne", party_entry="unknown", party_exit="unknown"
-        )  # noqa
-    ]  # noqa
-    assert mop.ward_no == 105
-    assert mop.minister == "JM"
-
-    mop.add_Party("fraktionslos")
-    assert mop.party_name == "fraktionslos"
-    assert mop.parties == [
-        helpers.Party(
-            party_name="Grüne", party_entry="unknown", party_exit="unknown"
-        ),  # noqa
-        helpers.Party(
-            party_name="fraktionslos",
-            party_entry="unknown",
-            party_exit="unknown",  # noqa
-        ),
-    ]
-
-
 def test_person_TooManyFirstNames(toomanyfirstnames_fixture):
     # pylint: disable=W0612, W0613
 
     name = person.Name
     with pytest.raises(helpers.TooManyFirstNames):
         name("Alfons-Reimund Horst Emil Pupsi", "Schulze")
-
-
-def test_person_NotInRangeError(notinrange_fixture):
-    # pylint: disable=W0612, W0613
-    mop = person.MoP
-
-    with pytest.raises(helpers.NotInRange):
-        mop("100", "NRW", "SPD", "Alfons-Reimund", "Hubbeldubbel")
 
 
 def test_person_AttrDisplay(capsys, attrdisplay_fixture):

@@ -18,3 +18,6 @@ from src.resources import (  # type: ignore # isort:skip # noqa # pylint: disabl
     constants,
     helpers,
 )
+from src.roles import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
+    mop_role,
+)
