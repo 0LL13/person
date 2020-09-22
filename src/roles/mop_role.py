@@ -16,7 +16,7 @@ sys.path.append(
     os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT))
 )  # isort: skip # noqa # pylint: disable=wrong-import-position
 
-from person import Politician  # type: ignore  # noqa
+from roles.politician_role import Politician  # type: ignore  # noqa
 from src.resources.helpers import (  # type: ignore # noqa
     AttrDisplay,
     NotInRange,
@@ -42,8 +42,8 @@ class _MoP_default:
 
 @dataclass
 class _MoP_base:
-    legislature: int
-    state: str  # this would be "NRW", "BY", ...
+    legislature: str
+    state: str
 
 
 @dataclass
@@ -59,11 +59,11 @@ class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
 if __name__ == "__main__":
 
     mop = MoP(
-        14,
+        "14",
         "NRW",
-        "Tom",
+        "SPD",  # type: ignore
+        "Tom",  # type: ignore
         "Schwadronius",
-        "SPD",
         party_entry="1990",  # type: ignore
         peer_title="Junker von",
         born="1950",

@@ -20,4 +20,5 @@ from src.resources import (  # type: ignore # isort:skip # noqa # pylint: disabl
 )
 from src.roles import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
     mop_role,
+    politician_role,
 )

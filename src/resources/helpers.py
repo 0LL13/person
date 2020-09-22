@@ -83,7 +83,7 @@ class AttrDisplay:
 
 @dataclass
 class _Party_base:
-    party_name: str
+    party_name: str  # type: ignore  # noqa
 
 
 @dataclass

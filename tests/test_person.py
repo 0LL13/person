@@ -110,140 +110,35 @@ def test_person_Noble(noble_fixture):
 def test_person_Person(person_fixture):
     # pylint: disable=W0612, W0613
 
-    pers = person.Person("Hugo", "Berserker", academic_title="MBA", born="2000")  # noqa
+    pers = person.Person(
+        "Hugo", "Berserker", academic_title="MBA", date_of_birth="2000"
+    )  # noqa
 
     assert pers.gender == "male"
     assert pers.academic_title == "MBA"
     assert pers.age == "20"
 
-    pers = person.Person("Siggi Mathilde", "Berserker", born="1980-2010")
+    pers = person.Person(
+        "Siggi Mathilde", "Berserker", date_of_birth="1980-2010"
+    )  # noqa
 
     assert pers.gender == "unknown"
     assert pers.middle_name_1 == "Mathilde"
-    assert pers.born == "1980"
-    assert pers.deceased == "2010"
+    assert pers.year_of_birth == "1980"
+    assert pers.deceased is True
+    assert pers.year_of_death == "2010"
 
     pers = person.Person("Sigrid", "Berserker", date_of_birth="10.1.1979")  # noqa
 
     assert pers.gender == "female"
-    assert pers.born == "1979"
+    assert pers.year_of_birth == "1979"
 
-
-def test_person_Politician(politician_fixture):
-    # pylint: disable=W0612, W0613
-
-    pol_1 = person.Politician(
-        "Regina",
-        "Dinther",
-        "CDU",
-        peer_title="van",
-        electoral_ward="Rhein-Sieg-Kreis IV",
-    )
-
-    assert pol_1.first_name == "Regina"
-    assert pol_1.last_name == "Dinther"
-    assert pol_1.gender == "female"
-    assert pol_1.peer_preposition == "van"
-    assert pol_1.party_name == "CDU"
-    assert pol_1.ward_no == 28
-    assert pol_1.voter_count == 110389
-
-    pol_1.party_name = "fraktionslos"
-    assert pol_1.party_name == "fraktionslos"
-    assert pol_1.parties == [
-        helpers.Party(
-            party_name="CDU", party_entry="unknown", party_exit="unknown"
-        )  # noqa
-    ]  # noqa
-
-    pol_2 = person.Politician(
-        "Regina",
-        "Dinther",
-        "CDU",
-        electoral_ward="Landesliste",
+    pers = person.Person(
+        "Sigrid", "Berserker", date_of_birth="10.1.1979 - 22.10.2019"
     )  # noqa
 
-    assert pol_2.electoral_ward == "ew"
-
-    pol_3 = person.Politician(
-        "Heiner", "Wiekeiner", "Piraten", electoral_ward="Kreis Aachen I"
-    )  # noqa
-
-    assert pol_3.voter_count == 116389
-
-    with pytest.raises(helpers.NotGermanParty):
-        pol_4 = person.Politician("Thomas", "Gschwindner", "not_a_German_party")  # noqa
-
-    pol_4 = person.Politician("Thomas", "Gschwindner", "FDP")
-    pol_4.add_Party("FDP")
-
-    assert pol_4.party_name == "FDP"
-    assert pol_4.parties == [
-        helpers.Party(
-            party_name="FDP", party_entry="unknown", party_exit="unknown"
-        )  # noqa
-    ]  # noqa
-
-    pol_4.add_Party("not_a_German_party")
-
-    assert pol_4.party_name == "FDP"
-    assert pol_4.parties == [
-        helpers.Party(
-            party_name="FDP", party_entry="unknown", party_exit="unknown"
-        )  # noqa
-    ]  # noqa
-
-    pol_4.add_Party("AfD")
-
-    assert pol_4.parties == [
-        helpers.Party(
-            party_name="FDP", party_entry="unknown", party_exit="unknown"
-        ),  # noqa
-        helpers.Party(
-            party_name="AfD", party_entry="unknown", party_exit="unknown"
-        ),  # noqa
-    ]
-
-    pol_4.add_Party("AfD", party_entry="2019")
-
-    assert pol_4.party_entry == "2019"
-    assert pol_4.parties == [
-        helpers.Party(
-            party_name="FDP", party_entry="unknown", party_exit="unknown"
-        ),  # noqa
-        helpers.Party(
-            party_name="AfD", party_entry="2019", party_exit="unknown"
-        ),  # noqa
-    ]
-
-    pol_4.add_Party("AfD", party_entry="2019", party_exit="2020")
-
-    assert pol_4.party_exit == "2020"
-    assert pol_4.parties == [
-        helpers.Party(
-            party_name="FDP", party_entry="unknown", party_exit="unknown"
-        ),  # noqa
-        helpers.Party(party_name="AfD", party_entry="2019", party_exit="2020"),
-    ]
-
-    pol_5 = person.Politician(
-        "Heiner", "Wiekeiner", "Linke", electoral_ward="Köln I"
-    )  # noqa
-
-    assert pol_5.ward_no == 13
-    assert pol_5.voter_count == 121721
-
-    pol_6 = person.Politician("Heiner", "Wiekeiner", "Grüne")
-
-    assert pol_6.electoral_ward == "ew"
-    assert pol_6.ward_no is None
-    assert pol_6.voter_count is None
-
-    pol_6.change_ward("Essen III")
-
-    assert pol_6.electoral_ward == "Essen III"
-    assert pol_6.ward_no == 67
-    assert pol_6.voter_count == 104181
+    assert pers.date_of_birth == "10.1.1979"
+    assert pers.date_of_death == "22.10.2019"
 
 
 def test_person_TooManyFirstNames(toomanyfirstnames_fixture):

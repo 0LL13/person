@@ -15,9 +15,9 @@ def test_person_MoP(mop_fixture):
     mop = mop_role.MoP(
         "14",
         "NRW",
+        "Grüne",
         "Alfons-Reimund",
         "Hubbeldubbel",
-        "Grüne",
         peer_title="auf der",
         electoral_ward="Ennepe-Ruhr-Kreis I",
         minister="JM",
