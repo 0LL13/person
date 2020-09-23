@@ -44,7 +44,7 @@ setup(
     long_description_content_type="text/x-rst",
     include_package_data=True,
     keywords="person, roles",
-    name="person_proj.src",
+    name="person_proj",
     packages=find_packages(include=["person_proj.*"]),
     setup_requires=setup_requirements,
     test_suite="tests",
