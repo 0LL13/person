@@ -20,6 +20,7 @@ include tox.ini
 include *.html
 include *.yaml
 include .coveragerc
+include Pipfile
 recursive-include reports *.css
 recursive-include reports *.html
 recursive-include reports *.js
@@ -27,3 +28,4 @@ recursive-include reports *.json
 recursive-include reports *.png
 recursive-include docs *.odt
 recursive-include docs *.txt
+recursive-include src *py
