@@ -45,7 +45,7 @@ setup(
     include_package_data=True,
     keywords="person, roles",
     name="person_roles",
-    packages=find_packages(include=["person", "person.*"]),
+    packages=find_packages(include=["person*"]),
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
