@@ -53,7 +53,7 @@ repos:
     name: pytest
     stages: [commit]
     language: system
-    entry: pipenv run pytest --cov=src --cov-fail-under=100
+    entry: pipenv run pytest --cov --cov-append --cov-report=term-missing
     types: [python]
     pass_filenames: false
 

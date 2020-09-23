@@ -19,9 +19,9 @@ sys.path.append(
     os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT))
 )  # isort: skip # noqa # pylint: disable=wrong-import-position
 
-from src.resources.constants import PEER_PREPOSITIONS  # type: ignore # noqa
-from src.resources.constants import PEERTITLES  # type: ignore # noqa
-from src.resources.helpers import (  # type: ignore # noqa; type: ignore # noqa; type: ignore  # noqa; type: ignore # noqa
+from roles.resources.constants import PEER_PREPOSITIONS  # type: ignore # noqa
+from roles.resources.constants import PEERTITLES  # type: ignore # noqa
+from roles.resources.helpers import (  # type: ignore # noqa; type: ignore # noqa; type: ignore  # noqa; type: ignore # noqa
     AttrDisplay,
     NotInRange,
     Party,

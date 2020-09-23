@@ -17,7 +17,7 @@ sys.path.append(
 )  # isort: skip # noqa # pylint: disable=wrong-import-position
 
 from roles.politician_role import Politician  # type: ignore  # noqa
-from src.resources.helpers import (  # type: ignore # noqa
+from roles.resources.helpers import (  # type: ignore # noqa
     AttrDisplay,
     NotInRange,
 )

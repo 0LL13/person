@@ -1,5 +1,5 @@
 [run]
-source=src.person
+source=roles
 omit = tests/*
 
 [report]

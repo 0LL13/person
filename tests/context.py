@@ -10,15 +10,15 @@ sys.path.append(
     os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT))
 )  # isort: skip # noqa # pylint: disable=wrong-import-position
 
-from src import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
+from roles import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
     person,
 )
 
-from src.resources import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
+from roles.resources import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
     constants,
     helpers,
 )
-from src.roles import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
+from roles import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
     mop_role,
     politician_role,
 )
