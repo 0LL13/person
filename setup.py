@@ -45,16 +45,12 @@ setup(
     include_package_data=True,
     keywords="person, roles",
     name="personroles",
-    packages=find_packages(
-        include=[
-            "personroles.person, personroles.mop_role, personroles.politician_role"
-        ]
-    ),  # noqa
+    packages=find_packages(include=["person, mop_role, politician_role"]),  # noqa
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
     url="https://github.com/0LL13/person",
-    version="0.1.3",
+    version="0.1.4",
     zip_safe=False,
     extras_require={
         "dev": ["check-manifest"],
