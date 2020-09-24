@@ -45,7 +45,11 @@ setup(
     include_package_data=True,
     keywords="person, roles",
     name="personroles",
-    packages=find_packages(include=["personroles.*"]),
+    packages=find_packages(
+        include=[
+            "personroles.person, personroles.mop_role, personroles.politician_role"
+        ]
+    ),  # noqa
     setup_requires=setup_requirements,
     test_suite="tests",
     tests_require=test_requirements,
