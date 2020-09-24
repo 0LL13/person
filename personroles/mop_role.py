@@ -16,11 +16,9 @@ sys.path.append(
     os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT))
 )  # isort: skip # noqa # pylint: disable=wrong-import-position
 
-from roles.politician_role import Politician  # type: ignore  # noqa
-from roles.resources.helpers import (  # type: ignore # noqa
-    AttrDisplay,
-    NotInRange,
-)
+from personroles.politician_role import Politician  # type: ignore  # noqa
+from personroles.resources.helpers import AttrDisplay  # type: ignore # noqa
+from personroles.resources.helpers import NotInRange  # type: ignore # noqa
 
 
 @dataclass
@@ -66,7 +64,7 @@ if __name__ == "__main__":
         "Schwadronius",
         party_entry="1990",  # type: ignore
         peer_title="Junker von",
-        born="1950",
+        date_of_birth="1950",
     )
     print(mop)
 
