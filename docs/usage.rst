@@ -4,7 +4,7 @@ Usage
 
 To use person in a project::
 
-    import person
+    from personroles import person
 
 Using Name::
 
@@ -54,8 +54,10 @@ Using Person::
 
 Using Politician::
 
-    politician = person.Politician("SPD", "Bärbel", "Gutherz", academic_title="Dr.",
-                                   born="1980", electoral_ward="Köln I")
+    from personroles import politician_role
+
+    politician = politician_role.Politician("SPD", "Bärbel", "Gutherz", academic_title="Dr.",
+                                   date_of_birth="1980", electoral_ward="Köln I")
     print(politician)
 
     Politician:
@@ -83,11 +85,13 @@ Using Politician::
 
 Using MdL::
 
-    mdl = person.MdL("14", "Grüne", "Tom", "Schwadronius", peer_title="Junker von",
-                     born="1950")
-    print(mdl)
+    from personroles import mop_role
 
-    MdL:
+    mop = mop_role.MoP("14", "Grüne", "Tom", "Schwadronius", peer_title="Junker von",
+                     born="1950")
+    print(mop)
+
+    MoP:
     age=70
     born=1950
     first_name=Tom
@@ -100,11 +104,11 @@ Using MdL::
     peer_preposition=von
     peer_title=Junker
 
-    mdl.add_Party("Grüne")
-    mdl.change_ward("Düsseldorf II")
-    print(mdl)
+    mop.add_Party("Grüne")
+    mop.change_ward("Düsseldorf II")
+    print(mop)
 
-    MdL:
+    MoP:
     age=70
     born=1950
     electoral_ward=Düsseldorf II

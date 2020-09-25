@@ -12,17 +12,17 @@ Overview
     :target: https://travis-ci.org/github/0LL13/person
     :alt: Travis-CI Build Status
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/person-roles.svg
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/personroles.svg
     :target: https://www.python.org/
     :alt: Supported versions
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/person-roles.svg
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/personroles.svg
     :target: https://realpython.com/cpython-source-code-guide/ 
     :alt: Supported implementations
 
-.. |license| image:: https://img.shields.io/pypi/l/person-roles
+.. |license| image:: https://img.shields.io/github/license/0LL13/person
     :target: https://opensource.org/licenses/MIT
-    :alt: PyPI - License
+    :alt: GitHub
 
 .. |update| image:: https://pyup.io/repos/github/0LL13/person/shield.svg
     :target: https://pyup.io/repos/github/0LL13/person/
@@ -31,8 +31,8 @@ Overview
 .. |coverage| image:: https://codecov.io/gh/0LL13/person/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/0LL13/person
 
-.. |pypi| image:: https://img.shields.io/pypi/v/person-roles
-    :target: https://pypi.org/project/person-roles/
+.. |pypi| image:: https://img.shields.io/pypi/v/personroles
+    :target: https://pypi.org/project/personroles/
     :alt: PyPI
 
 .. |pull| image:: https://img.shields.io/github/issues-pr/0LL13/person
@@ -82,7 +82,7 @@ Usage
 =====
 ::
 
-    import person
+    from personroles import person
 
     tom = person.Academic("Thomas H.", "Smith", academic_title="MBA")
     print(tom)
