@@ -41,17 +41,17 @@ def equivalent_names(n1, n2):
 @pytest.mark.parametrize("n", names)
 def test_person_Name_para(n):
     name = person.Name(*n)
-    assert equivalent_names(name, n)
+    assert equivalent_names(name, n)  # nosec
 
 
 def test_person_Name(name_fixture):
     # pylint: disable=W0612, W0613
 
     name = person.Name("Alfons-Reimund Horst Emil", "Boeselager")
-    assert name.first_name == "Alfons-Reimund"
-    assert name.middle_name_1 == "Horst"
-    assert name.middle_name_2 == "Emil"
-    assert name.last_name == "Boeselager"
+    assert name.first_name == "Alfons-Reimund"  # nosec
+    assert name.middle_name_1 == "Horst"  # nosec
+    assert name.middle_name_2 == "Emil"  # nosec
+    assert name.last_name == "Boeselager"  # nosec
 
 
 def test_person_Academic(academic_fixture):
@@ -63,22 +63,22 @@ def test_person_Academic(academic_fixture):
         middle_name_1="R.",
         academic_title="Prof.Dr.   Dr",  # noqa
     )
-    assert academic.first_name == "Horatio"
-    assert academic.middle_name_1 == "R."
-    assert academic.last_name == "Pimpernell"
-    assert academic.academic_title == "Prof. Dr. Dr."
+    assert academic.first_name == "Horatio"  # nosec
+    assert academic.middle_name_1 == "R."  # nosec
+    assert academic.last_name == "Pimpernell"  # nosec
+    assert academic.academic_title == "Prof. Dr. Dr."  # nosec
 
     academic = person.Academic(
         "Horatio Rübennase D.", "Pimpernell", academic_title="Prof.Dr.Dr"
     )
-    assert academic.first_name == "Horatio"
-    assert academic.middle_name_1 == "Rübennase"
-    assert academic.middle_name_2 == "D."
-    assert academic.last_name == "Pimpernell"
-    assert academic.academic_title == "Prof. Dr. Dr."
+    assert academic.first_name == "Horatio"  # nosec
+    assert academic.middle_name_1 == "Rübennase"  # nosec
+    assert academic.middle_name_2 == "D."  # nosec
+    assert academic.last_name == "Pimpernell"  # nosec
+    assert academic.academic_title == "Prof. Dr. Dr."  # nosec
 
     academic = person.Academic("Horatio", "Pimpernell", academic_title="B.A.")
-    assert academic.academic_title == "B. A."
+    assert academic.academic_title == "B. A."  # nosec
 
 
 def test_person_Noble(noble_fixture):
@@ -86,25 +86,25 @@ def test_person_Noble(noble_fixture):
 
     noble = person.Noble("Sepp Theo", "Müller", peer_title="von und zu")
 
-    assert noble.first_name == "Sepp"
-    assert noble.middle_name_1 == "Theo"
-    assert noble.last_name == "Müller"
-    assert noble.peer_preposition == "von und zu"
+    assert noble.first_name == "Sepp"  # nosec
+    assert noble.middle_name_1 == "Theo"  # nosec
+    assert noble.last_name == "Müller"  # nosec
+    assert noble.peer_preposition == "von und zu"  # nosec
 
     noble = person.Noble("Seppl", "Müller", peer_title="Junker van")
 
-    assert noble.first_name == "Seppl"
-    assert noble.last_name == "Müller"
-    assert noble.peer_title == "Junker"
-    assert noble.peer_preposition == "van"
+    assert noble.first_name == "Seppl"  # nosec
+    assert noble.last_name == "Müller"  # nosec
+    assert noble.peer_title == "Junker"  # nosec
+    assert noble.peer_preposition == "van"  # nosec
 
     noble = person.Noble("Sven Oskar", "Müller", peer_title="Graf Eumel von")
 
-    assert noble.first_name == "Sven"
-    assert noble.middle_name_1 == "Oskar"
-    assert noble.last_name == "Müller"
-    assert noble.peer_title == "Graf"
-    assert noble.peer_preposition == "von"
+    assert noble.first_name == "Sven"  # nosec
+    assert noble.middle_name_1 == "Oskar"  # nosec
+    assert noble.last_name == "Müller"  # nosec
+    assert noble.peer_title == "Graf"  # nosec
+    assert noble.peer_preposition == "von"  # nosec
 
 
 def test_person_Person(person_fixture):
@@ -114,31 +114,31 @@ def test_person_Person(person_fixture):
         "Hugo", "Berserker", academic_title="MBA", date_of_birth="2000"
     )  # noqa
 
-    assert pers.gender == "male"
-    assert pers.academic_title == "MBA"
-    assert pers.age == "20"
+    assert pers.gender == "male"  # nosec
+    assert pers.academic_title == "MBA"  # nosec
+    assert pers.age == "20"  # nosec
 
     pers = person.Person(
         "Siggi Mathilde", "Berserker", date_of_birth="1980-2010"
     )  # noqa
 
-    assert pers.gender == "unknown"
-    assert pers.middle_name_1 == "Mathilde"
-    assert pers.year_of_birth == "1980"
-    assert pers.deceased is True
-    assert pers.year_of_death == "2010"
+    assert pers.gender == "unknown"  # nosec
+    assert pers.middle_name_1 == "Mathilde"  # nosec
+    assert pers.year_of_birth == "1980"  # nosec
+    assert pers.deceased is True  # nosec
+    assert pers.year_of_death == "2010"  # nosec
 
     pers = person.Person("Sigrid", "Berserker", date_of_birth="10.1.1979")  # noqa
 
-    assert pers.gender == "female"
-    assert pers.year_of_birth == "1979"
+    assert pers.gender == "female"  # nosec
+    assert pers.year_of_birth == "1979"  # nosec
 
     pers = person.Person(
         "Sigrid", "Berserker", date_of_birth="10.1.1979 - 22.10.2019"
     )  # noqa
 
-    assert pers.date_of_birth == "10.1.1979"
-    assert pers.date_of_death == "22.10.2019"
+    assert pers.date_of_birth == "10.1.1979"  # nosec
+    assert pers.date_of_death == "22.10.2019"  # nosec
 
 
 def test_person_TooManyFirstNames(toomanyfirstnames_fixture):
@@ -168,4 +168,4 @@ def test_person_AttrDisplay(capsys, attrdisplay_fixture):
 
     expected = """MockClass:\na=späm\nb=ham\n\n"""
 
-    assert expected == captured.out
+    assert expected == captured.out  # nosec

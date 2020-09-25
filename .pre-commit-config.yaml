@@ -34,20 +34,12 @@ repos:
     types: [python]
     require_serial: true
 
-    #  - id: pytest
-    #    name: pytest
-    #    stages: [commit]
-    #    language: system
-    #    entry: pipenv run pytest
-    #    types: [python]
-    #    pass_filenames: false
-
-    #  - id: bandit
-    #    name: bandit
-    #    stages: [commit]
-    #    language: system
-    #    entry: pipenv run bandit -r ./person/
-    #    types: [python]
+  - id: bandit
+    name: bandit
+    stages: [commit]
+    language: system
+    entry: pipenv run bandit -r ./personroles/
+    types: [python]
 
   - id: pytest-cov
     name: pytest

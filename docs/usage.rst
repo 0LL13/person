@@ -83,7 +83,7 @@ Using Politician::
              Party('GRÜNE', party_entry='2017', party_exit='unknown')]
     party_name='GRÜNE'
 
-Using MdL::
+Using MoP::
 
     from personroles import mop_role
 

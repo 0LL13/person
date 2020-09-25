@@ -23,30 +23,30 @@ def test_person_MoP(mop_fixture):
         minister="JM",
     )
 
-    assert mop.legislature == "14"
-    assert mop.first_name == "Alfons-Reimund"
-    assert mop.last_name == "Hubbeldubbel"
-    assert mop.gender == "male"
-    assert mop.peer_preposition == "auf der"
-    assert mop.party_name == "Grüne"
-    assert mop.parties == [
+    assert mop.legislature == "14"  # nosec
+    assert mop.first_name == "Alfons-Reimund"  # nosec
+    assert mop.last_name == "Hubbeldubbel"  # nosec
+    assert mop.gender == "male"  # nosec
+    assert mop.peer_preposition == "auf der"  # nosec
+    assert mop.party_name == "Grüne"  # nosec
+    assert mop.parties == [  # nosec
         helpers.Party(
             party_name="Grüne", party_entry="unknown", party_exit="unknown"
-        )  # noqa
-    ]  # noqa
-    assert mop.ward_no == 105
-    assert mop.minister == "JM"
+        )  # noqa  # nosec
+    ]  # noqa  # nosec
+    assert mop.ward_no == 105  # nosec
+    assert mop.minister == "JM"  # nosec
 
     mop.add_Party("fraktionslos")
-    assert mop.party_name == "fraktionslos"
-    assert mop.parties == [
+    assert mop.party_name == "fraktionslos"  # nosec
+    assert mop.parties == [  # nosec
         helpers.Party(
             party_name="Grüne", party_entry="unknown", party_exit="unknown"
-        ),  # noqa
+        ),  # noqa  # nosec
         helpers.Party(
             party_name="fraktionslos",
             party_entry="unknown",
-            party_exit="unknown",  # noqa
+            party_exit="unknown",  # noqa  # nosec
         ),
     ]
 
