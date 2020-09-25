@@ -1,5 +1,15 @@
+[build]
+    nodes:
+      coverage:
+        tests:
+          override:
+            - command: './run-rests.sh'
+              coverage:
+                file: '.coverage'
+                config_file: '.coveragerc'
+                format: 'py-cc'
 [run]
-source=roles
+source=personroles
 omit = tests/*
 
 [report]

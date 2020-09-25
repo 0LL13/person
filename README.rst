@@ -43,7 +43,9 @@ Overview
    :target: https://codeclimate.com/github/0LL13/person/maintainability
    :alt: Maintainability
 
-
+.. |bandit| image:: https://img.shields.io/badge/security-bandit-yellow.svg
+    :target: https://github.com/PyCQA/bandit
+    :alt: Security Status
 
 .. list-table::
     :widths: auto 
@@ -51,7 +53,7 @@ Overview
     * - limits
       - |pypi| |supported-versions| |supported-implementations| |climate|
     * - code
-      - |Codacy Badge| |coverage| |build| |update| |pull|
+      - |Codacy Badge| |coverage| |build| |update| |pull| |bandit|
     * - legal
       - |license|
     * - read
