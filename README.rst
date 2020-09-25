@@ -105,7 +105,11 @@ Installation
 ------------
 ::
 
-    pip install person-roles
+    pip install personroles
+
+    or 
+
+    pipenv install personroles
 
 Contribute
 ----------
