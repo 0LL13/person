@@ -1,8 +1,6 @@
 # Config file for automatic testing at travis-ci.com
 env:
   - TOX_ENV=py38
-  global:
-    - CC_TEST_REPORTER_ID=bf8fe8ccdc0d398f84860350ae1d2b492969b28c48d904a711aa33302292b7b1
 build:
   nodes:
     coverage:
