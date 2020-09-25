@@ -210,15 +210,23 @@ class Person(
 if __name__ == "__main__":
 
     name = Name("Hans Hermann", "Werner")
+    print('name = Name("Hans Hermann", "Werner")')
     print(name)
 
     noble = Noble("Dagmara", "Bodelschwingh", peer_title="Gräfin von")
+    print('noble = Noble("Dagmara", "Bodelschwingh", peer_title="Gräfin von")')
     print(noble)
 
     academic = Academic("Horst Heiner", "Wiekeiner", academic_title="Dr.")  # noqa
+    print(
+        'academic = Academic("Horst Heiner", "Wiekeiner", academic_title="Dr.")'
+    )  # noqa
     print(academic)
 
     person_1 = Person(
         "Sven", "Rübennase", academic_title="MBA", date_of_birth="1990"
+    )  # noqa
+    print(
+        'person_1 = Person("Sven", "Rübennase", academic_title="MBA", date_of_birth="1990")'
     )  # noqa
     print(person_1)
