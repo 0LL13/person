@@ -1,6 +1,8 @@
 # Config file for automatic testing at travis-ci.com
 env:
   - TOX_ENV=py38
+  global:
+      - CC_TEST_REPORTER_ID=d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577
 build:
   nodes:
     coverage:
@@ -37,12 +39,12 @@ deploy:
     repo: 0LL13/person
     python: 3.8
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
   - ./cc-test-reporter format-coverage -t .coverage
   - ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2                  # Sum both coverage parts into coverage/codeclimate.json
   - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi  # Upload coverage/codeclimate.json
   - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter format-coverage -t simplecov -o ./coverage/codeclimate.$CI_NODE_INDEX.json ./coverage/spec/.resultset.json; fi
   - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter sum-coverage --output - --parts $CI_NODE_TOTAL coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --input -; fi
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 after_success:
   - codecov -e TOX_ENV
 
