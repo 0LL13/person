@@ -2,7 +2,8 @@
 env:
   - TOX_ENV=py38
   global:
-      - CC_TEST_REPORTER_ID=d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+    - CC_TEST_REPORTER_ID=d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577
 build:
   nodes:
     coverage:
@@ -22,7 +23,6 @@ install: pip install -U tox-travis
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
 script: tox -e $TOX_ENV
 # Assuming you have installed the travis-ci CLI tool, after you
 # create the Github repo and add it to Travis, run the
