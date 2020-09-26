@@ -4,16 +4,7 @@ env:
   global:
     - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
     - CC_TEST_REPORTER_ID=d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577
-      #build:
-      #  nodes:
-      #    coverage:
-      #      tests:
-      #        override:
-      #          - command: './run-tests.sh'
-      #            coverage:
-      #              file: '.coverage'
-      #              config_file: '.coveragerc'
-      #              format: 'py-cc'
+    - CCTR=./cc-test-reporter
 language: python
 python:
   - 3.8
@@ -21,30 +12,39 @@ python:
 install: pip install -U tox-travis
 # Command to run tests, e.g. python setup.py test
 before_script:
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > $CCTR
+  - chmod +x $CCTR
+  - $CCTR before-build
+# build:
+#   nodes:
+#     coverage:
+#       tests:
+#         override:
+#           - command: './run-tests.sh'
+#             coverage:
+#               file: '.coverage'
+#               config_file: '.coveragerc'
+#               format: 'py-cc'
 script: tox -e $TOX_ENV
 # Assuming you have installed the travis-ci CLI tool, after you
 # create the Github repo and add it to Travis, run the
 # following command to finish PyPI deployment setup:
 # $ travis encrypt --add deploy.password
+  - $CCTR format-coverage --output coverage/codeclimate.$SUITE.json
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
   user: 0LL13
-  password:
-    secure: PLEASE_REPLACE_ME
+  #  password:
+  #    secure: PLEASE_REPLACE_ME
   on:
     tags: true
     repo: 0LL13/person
     python: 3.8
 after_script:
-  - ./cc-test-reporter format-coverage -t .coverage
-  - ./cc-test-reporter sum-coverage coverage/codeclimate.*.json -p 2                  # Sum both coverage parts into coverage/codeclimate.json
-  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi  # Upload coverage/codeclimate.json
-  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter format-coverage -t simplecov -o ./coverage/codeclimate.$CI_NODE_INDEX.json ./coverage/spec/.resultset.json; fi
-  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter sum-coverage --output - --parts $CI_NODE_TOTAL coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --input -; fi
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - $CCTR sum-coverage coverage/codeclimate.*.json | $CCTR upload-coverage
+  - $CCTR after-build --exit-code $TRAVIS_TEST_RESULT
+  - rm -f config/application.yml
 after_success:
   - codecov -e TOX_ENV
 
