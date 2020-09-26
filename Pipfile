@@ -108,6 +108,7 @@ SecretStorage = "==3.1.2"
 Sphinx = "==3.2.1"
 requirements-txt = "*"
 wheel = "*"
+tox-travis = "*"
 
 [requires]
 python_version = "3.8"
