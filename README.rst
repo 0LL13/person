@@ -78,7 +78,7 @@ These roles have been sketched::
     Person - gender, born, age, deceased
     Noble - peer_title, peer_preposition
     Politician - electoral_ward, ward_no, voter_count, minister, offices, party, parties
-    MdL - legislature, parl_pres, parl_vicePres
+    MoP - legislature, parl_pres, parl_vicePres
 
 Usage
 =====

@@ -15,16 +15,16 @@ before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > $CCTR
   - chmod +x $CCTR
   - $CCTR before-build
-# build:
-#   nodes:
-#     coverage:
-#       tests:
-#         override:
-#           - command: './run-tests.sh'
-#             coverage:
-#               file: '.coverage'
-#               config_file: '.coveragerc'
-#               format: 'py-cc'
+build:
+  nodes:
+    coverage:
+      tests:
+        override:
+          - command: './run-tests.sh'
+            coverage:
+              file: '.coverage'
+              config_file: '.coveragerc'
+              format: 'py-cc'
 script: tox -e $TOX_ENV
 # Assuming you have installed the travis-ci CLI tool, after you
 # create the Github repo and add it to Travis, run the
