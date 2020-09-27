@@ -11,6 +11,8 @@ before_install:
   - "pip install -U pip"
   - "pip install -U pytest"
   - "pip install codecov"
+  - "sudo apt-get install jq"
+  - "curl -LSs \"$(curl -LSs https://api.github.com/repos/codacy/codacy-coverage-reporter/releases/latest | jq -r '.assets | map({name, browser_download_url} | select(.name | endswith(\".jar\"))) | .[0].browser_download_url')\" -o codacy-coverage-reporter-assembly.jar"
 before_script: 
   - CCTR=./cc-test-reporter
   - "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > $CCTR"
@@ -36,6 +38,7 @@ deploy:
     tags: true
   user: 0LL13
 env: 
+  - CC_TEST_REPORTER_ID=d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577
   - TOX_ENV=py38
 install: 
   - "pip install -U tox-travis \".[test]\" ."
