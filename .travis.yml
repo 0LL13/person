@@ -5,7 +5,7 @@ after_script:
   - "$CCTR after-build --exit-code $TRAVIS_TEST_RESULT"
   - "rm -f config/application.yml"
 after_success: 
-  - codecov
+  - java -jar codacy-coverage-reporter-assembly.jar report -l Java -r build/reports/jacoco/test/jacocoTestReport.xml
 before_install: 
   - "python --version"
   - "pip install -U pip"
@@ -38,7 +38,6 @@ deploy:
     tags: true
   user: 0LL13
 env: 
-  - CC_TEST_REPORTER_ID=d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577
   - TOX_ENV=py38
 install: 
   - "pip install -U tox-travis \".[test]\" ."
