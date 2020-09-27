@@ -8,7 +8,8 @@ before_install:
   - "pip install -U pytest"
   - "pip install codecov"
 before_script: 
-  - "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > $CCTR"
+  - CCTR=./cc-test-reporter
+  - "curl -L test-reporter-0.6.3-linux-amd64 > $CCTR"
   - "chmod +x $CCTR"
   - "$CCTR before-build"
 deploy: 
@@ -28,3 +29,4 @@ language: python
 python: 
   - 3.8
 script: "tox -e $TOX_ENV"
+
