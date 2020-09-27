@@ -1,4 +1,5 @@
 # Config file for automatic testing at travis-ci.com
+version: ~> 1.0
 env:
   - TOX_ENV=py38
   global:

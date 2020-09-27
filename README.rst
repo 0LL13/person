@@ -95,6 +95,28 @@ Usage
     last_name=Smith
     middle_name_1=H.
 
+::
+
+    from personroles import mop_role
+
+    bob = mop_role.MoP("14", "NRW", "SPD", "Bob R.", "Smith", academic_title="Dr.", electoral_ward="Köln I")
+    print(bob)
+
+    MoP:
+    academic_title=Dr.
+    electoral_ward=Köln I
+    first_name=Bob
+    gender=male
+    last_name=Smith
+    legislature=14
+    membership={'14'}
+    middle_name_1=R.
+    parties=[Party(party_name='SPD', party_entry='unknown', party_exit='unknown')]
+    party_name=SPD
+    state=NRW
+    voter_count=121721
+    ward_no=13
+
 Credits
 -------
 
