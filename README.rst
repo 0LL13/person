@@ -63,7 +63,7 @@ Overview
     * - ci
       - |Travis CI|
     * - coverage
-      - |codacy| |coverage| |update| |pull| |bandit|
+      - |codacy| |coverage| |climate| 
     * - legal
       - |license|
     * - read
