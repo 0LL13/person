@@ -4,7 +4,6 @@
 from dataclasses import dataclass
 
 import pytest
-from context import constants  # noqa
 from context import helpers  # noqa
 from context import person
 

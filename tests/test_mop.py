@@ -2,7 +2,6 @@
 # test_person.py
 """Tests for `person` package."""
 import pytest
-from context import constants  # noqa
 from context import helpers  # noqa
 from context import mop_role
 

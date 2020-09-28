@@ -24,8 +24,6 @@ from personroles.resources.constants import (  # type: ignore # noqa
     PEERTITLES,
 )
 from personroles.resources.helpers import AttrDisplay  # type: ignore # noqa
-from personroles.resources.helpers import NotInRange  # type: ignore # noqa
-from personroles.resources.helpers import Party  # type: ignore # noqa
 from personroles.resources.helpers import TooManyFirstNames  # noqa
 
 
@@ -219,7 +217,7 @@ if __name__ == "__main__":
 
     academic = Academic("Horst Heiner", "Wiekeiner", academic_title="Dr.")  # noqa
     print(
-        'academic = Academic("Horst Heiner", "Wiekeiner", academic_title="Dr.")'
+        'academic = Academic("Horst Heiner", "Wiekeiner", academic_title="Dr.")'  # noqa
     )  # noqa
     print(academic)
 
@@ -227,6 +225,6 @@ if __name__ == "__main__":
         "Sven", "Rübennase", academic_title="MBA", date_of_birth="1990"
     )  # noqa
     print(
-        'person_1 = Person("Sven", "Rübennase", academic_title="MBA", date_of_birth="1990")'
+        'person_1 = Person("Sven", "Rübennase", academic_title="MBA", date_of_birth="1990")'  # noqa
     )  # noqa
     print(person_1)

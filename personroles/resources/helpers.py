@@ -15,8 +15,6 @@ class NotInRange(Exception):
     scraped. Therefore only terms 14 to currently term 17 are accepted.
     """
 
-    pass
-
 
 class NotGermanParty(Exception):
 
@@ -24,8 +22,6 @@ class NotGermanParty(Exception):
     Since this project focusses on Germany the current range of parties that
     will be accepted is reduced to German parties.
     """
-
-    pass
 
 
 class TooManyFirstNames(Exception):

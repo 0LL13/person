@@ -20,13 +20,10 @@ from personroles.person import Person  # type: ignore  # noqa
 from personroles.resources import helpers  # type: ignore  # noqa
 from personroles.resources.constants import (  # type: ignore # noqa
     GERMAN_PARTIES,
-    PEER_PREPOSITIONS,
     PEERTITLES,
 )
 from personroles.resources.helpers import AttrDisplay  # type: ignore # noqa
-from personroles.resources.helpers import NotInRange  # type: ignore # noqa
 from personroles.resources.helpers import Party  # type: ignore # noqa
-from personroles.resources.helpers import TooManyFirstNames  # noqa
 
 
 @dataclass
