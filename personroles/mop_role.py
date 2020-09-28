@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-A set of dataclasses concerning roles of persons and their particulars.
+A set of dataclasses concerning roles of persons and their particulars. Module
+mop_role.py covers the role as member of parliament. The role integrates the
+role of politician and adds a federal state (like "NRW" or "BY") and
+legislature (legislative term) as obligatory informations to define the role.
+More informations like speeches held or offices (like president) filled can be
+added.
 """
 import os
 import sys
