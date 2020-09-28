@@ -28,14 +28,15 @@ build:
               format: py-cc
 deploy: 
   distributions: "sdist bdist_wheel"
-  provider: GitHub
+  provider: pypi
   true: 
     python: 3.8
-    repo: 0LL13/person
+    repo: "https://pypi.org/project/personroles/"
     tags: true
-  user: 0LL13
+  user: O_live_rSt_apel
 env: 
   - TOX_ENV=py38
+  - "GIT_COMMITTED_AT=$(if [ \"$TRAVIS_PULL_REQUEST\" == \"false\" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi) - CC_TEST_REPORTER_ID=d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577 - CCTR=./cc-test-reporter"
 install: 
   - "pip install -U tox-travis \".[test]\" ."
 language: python
