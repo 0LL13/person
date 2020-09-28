@@ -130,10 +130,13 @@ Usage
 Credits
 -------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was started with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+Also the `project setup`_ by Martin Heinz was very helpful.
+I felt the changes were necessary to keep the files containing the roles small.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+.. _`project setup`: https://martinheinz.dev/blog/14
 
 Installation
 ------------
