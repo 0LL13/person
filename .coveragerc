@@ -5,7 +5,7 @@
           override:
             - command: './run-rests.sh'
               coverage:
-                file: './.coverage'
+                file: '.coverage'
                 config_file: '.coveragerc'
                 format: 'py-cc'
 [run]
