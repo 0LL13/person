@@ -46,4 +46,3 @@ language: python
 python: 
   - 3.8
 script: coverage run --source personroles pytest
-
