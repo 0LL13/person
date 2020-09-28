@@ -56,9 +56,13 @@ Overview
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       - |codacy| |coverage| |coveralls| |climate| |update| |pull| |bandit|
     * - ci
       - |Travis CI|
+=======
+      - |Codacy Badge| |coverage| |build| |update| |pull| |bandit|
+>>>>>>> parent of 10184fb... still trying to ci coverage
 =======
       - |Codacy Badge| |coverage| |build| |update| |pull| |bandit|
 >>>>>>> parent of 10184fb... still trying to ci coverage
