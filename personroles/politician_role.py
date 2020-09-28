@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-A set of dataclasses concerning roles of persons and their particulars. Module
-politician_role.py is collecting electoral ward, ward no., voter count of that
-ward, minister (like "JM": Justizminister), offices (in case more than one
-ministry position is filled (i.e. ["JM", "FM"]), and parties.
+A set of dataclasses concerning roles of persons and their particulars.
+
+Module politician_role.py is collecting electoral ward, ward no., voter count
+of that ward, minister (like "JM": Justizminister), offices (in case more than
+one ministry position is filled (i.e. ["JM", "FM"]), and parties.
 """
 import os
 import sys

@@ -1,4 +1,1 @@
-"""
-A set of dataclasses concerning roles (academic, politician, ...) of persons
-and their particulars.
-"""
+"""A set of dataclasses concerning roles of persons and their particulars."""
