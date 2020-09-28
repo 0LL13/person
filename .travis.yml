@@ -6,6 +6,7 @@ after_script:
   - "rm -f config/application.yml"
 after_success: 
   - java -jar codacy-coverage-reporter-assembly.jar report -l Java -r build/reports/jacoco/test/jacocoTestReport.xml
+  - codecov -e TOX_ENV
 before_install: 
   - "python --version"
   - "pip install -U pip"
@@ -44,5 +45,5 @@ install:
 language: python
 python: 
   - 3.8
-script: "tox -e $TOX_ENV"
+script: coverage run --source personroles pytest
 
