@@ -1,7 +1,25 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Some helper functions
+Helper functions:
+    exceptions:
+        NotInRange (legislature of state)
+        NotGermanParty
+        TooManyFirstNames (in Germany not more than three)
+    print style:
+        AttrDisplay
+    Party:
+        _Party_base:
+            party_name
+        _Party_default:
+            party_entry
+            party_exit
+    planned:
+    Speech:
+        _Speech_base:
+            speech_key
+        _Speech_default:
+            speech_content
 """
 from dataclasses import dataclass, field
 

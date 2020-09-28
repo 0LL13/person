@@ -57,7 +57,7 @@ Overview
       - |pypi| |supported-versions| |supported-implementations|
     * - code
       - |codacy| |coverage| |coveralls| |climate| |update| |pull| |bandit|
-    * - build
+    * - ci
       - |Travis CI|
     * - legal
       - |license|

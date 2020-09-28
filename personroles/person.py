@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-A set of dataclasses concerning roles of persons and their particulars.
-"""
+A set of dataclasses concerning roles of persons and their particulars. Module
+person.py is concerned with names and titles (academic and peer)."""
 import datetime
 import os
 import sys
@@ -129,6 +129,7 @@ class _Academic_title_default:
 @dataclass
 class Academic(_Academic_title_default, Name, AttrDisplay):
     def __post_init__(self):
+        """Initialize names of Name and degree"""
         Name.__post_init__(self)
         self.degree_title()
 
@@ -154,6 +155,9 @@ class Person(
     AttrDisplay,  # noqa
 ):
     def __post_init__(self):
+        """
+        Initializing names, titles (academic and peer), age, sex, and year of
+        birth."""
         Name.__post_init__(self)
         Noble.__post_init__(self)
         Academic.__post_init__(self)
