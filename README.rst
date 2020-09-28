@@ -5,7 +5,7 @@ Overview
     :target: https://person.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. |Codacy Badge| image:: https://app.codacy.com/project/badge/Grade/5a29d30f3ec7470cb17085a29a4c6a8f
+.. |codacy| image:: https://app.codacy.com/project/badge/Grade/5a29d30f3ec7470cb17085a29a4c6a8f
     :target: https://www.codacy.com/manual/0LL13/person?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0LL13/person&amp;utm_campaign=Badge_Grade)  
 
 .. |build| image:: https://travis-ci.org/0LL13/person.svg?branch=master
@@ -31,6 +31,9 @@ Overview
 .. |coverage| image:: https://codecov.io/gh/0LL13/person/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/0LL13/person
 
+.. |coveralls| image:: https://coveralls.io/repos/github/0LL13/person/badge.svg?branch=master
+    :target: https://coveralls.io/github/0LL13/person?branch=master
+
 .. |pypi| image:: https://img.shields.io/pypi/v/personroles
     :target: https://pypi.org/project/personroles/
     :alt: PyPI
@@ -53,25 +56,11 @@ Overview
     * - limits
       - |pypi| |supported-versions| |supported-implementations| |climate|
     * - code
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
       - |codacy| |coverage| |coveralls| |climate| |update| |pull| |bandit|
     * - ci
       - |Travis CI|
-=======
+    * - coverage
       - |Codacy Badge| |coverage| |build| |update| |pull| |bandit|
->>>>>>> parent of 10184fb... still trying to ci coverage
-=======
-      - |Codacy Badge| |coverage| |build| |update| |pull| |bandit|
->>>>>>> parent of 10184fb... still trying to ci coverage
-=======
-      - |Codacy Badge| |coverage| |build| |update| |pull| |bandit|
->>>>>>> parent of 10184fb... still trying to ci coverage
-=======
-      - |Codacy Badge| |coverage| |build| |update| |pull| |bandit|
->>>>>>> parent of 10184fb... still trying to ci coverage
     * - legal
       - |license|
     * - read
