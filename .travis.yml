@@ -5,8 +5,8 @@ after_script:
   - "$CCTR after-build --exit-code $TRAVIS_TEST_RESULT"
   - "rm -f config/application.yml"
 after_success: 
-  - codecov -e TOX_ENV
   - coveralls
+  - bash <(curl -s https://codecov.io/bash)
 before_install: 
   - "python --version"
   - "pip install -U pip"
