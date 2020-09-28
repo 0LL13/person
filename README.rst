@@ -8,7 +8,7 @@ Overview
 .. |codacy| image:: https://app.codacy.com/project/badge/Grade/5a29d30f3ec7470cb17085a29a4c6a8f
     :target: https://www.codacy.com/manual/0LL13/person?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0LL13/person&amp;utm_campaign=Badge_Grade)  
 
-.. |build| image:: https://travis-ci.org/0LL13/person.svg?branch=master
+.. |Travis CI| image:: https://travis-ci.org/0LL13/person.svg?branch=master
     :target: https://travis-ci.org/github/0LL13/person
     :alt: Travis-CI Build Status
 
@@ -50,17 +50,20 @@ Overview
     :target: https://github.com/PyCQA/bandit
     :alt: Security Status
 
+.. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+
 .. list-table::
     :widths: auto 
 
     * - limits
-      - |pypi| |supported-versions| |supported-implementations| |climate|
+      - |pypi| |supported-versions| |supported-implementations|
     * - code
-      - |codacy| |coverage| |coveralls| |climate| |update| |pull| |bandit|
+      - |update| |pull| |bandit| |black|
     * - ci
       - |Travis CI|
     * - coverage
-      - |Codacy Badge| |coverage| |build| |update| |pull| |bandit|
+      - |codacy| |coverage| |update| |pull| |bandit|
     * - legal
       - |license|
     * - read
