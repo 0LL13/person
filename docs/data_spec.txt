@@ -42,7 +42,6 @@ Data that needs to be retrieved together:
     	cabinet
     	ministers
     	parties -> distribution
-    	
     
     sessions:
     	state
@@ -59,7 +58,3 @@ Data that needs to be retrieved together:
     	member
     	gender
     	type of reaction
-    
-    
-    	
-	    	
