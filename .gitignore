@@ -24,7 +24,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-**codacy-coverage-reporter
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -81,6 +80,7 @@ target/
 celerybeat-schedule
 
 # SageMath parsed files
+
 *.sage.py
 
 # dotenv
@@ -106,3 +106,9 @@ ENV/
 
 # IDE settings
 .vscode/
+.tox/pkg/lib/python3.8/site-packages/cffi.libs/libffi-806b1a9d.so.6.0.4
+
+# executable files
+codacy-coverage-reporter
+.codacy-coverage/codacy-coverage-reporter
+git-ignore-elf
