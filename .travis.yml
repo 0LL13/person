@@ -41,4 +41,4 @@ install:
 language: python
 python: 
   - 3.8
-script: coverage run --source personroles pytest
+script: coverage run --source personroles -m pytest
