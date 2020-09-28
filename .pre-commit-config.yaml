@@ -45,7 +45,7 @@ repos:
     name: pytest
     stages: [commit]
     language: system
-    entry: pipenv run pytest --cov=personroles --cov-append --cov-report=term-missing
+    entry: pipenv run pytest --cov --cov-append --cov-report=term-missing
     types: [python]
     pass_filenames: false
 

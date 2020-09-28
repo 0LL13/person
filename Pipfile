@@ -109,7 +109,6 @@ Sphinx = "==3.2.1"
 requirements-txt = "*"
 wheel = "*"
 tox-travis = "*"
-coveralls = "*"
 
 [requires]
 python_version = "3.8"

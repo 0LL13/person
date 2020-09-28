@@ -5,10 +5,10 @@ Overview
     :target: https://person.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. |codacy| image:: https://app.codacy.com/project/badge/Grade/5a29d30f3ec7470cb17085a29a4c6a8f
+.. |Codacy Badge| image:: https://app.codacy.com/project/badge/Grade/5a29d30f3ec7470cb17085a29a4c6a8f
     :target: https://www.codacy.com/manual/0LL13/person?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0LL13/person&amp;utm_campaign=Badge_Grade)  
 
-.. |Travis CI| image:: https://travis-ci.org/0LL13/person.svg?branch=master
+.. |build| image:: https://travis-ci.org/0LL13/person.svg?branch=master
     :target: https://travis-ci.org/github/0LL13/person
     :alt: Travis-CI Build Status
 
@@ -47,18 +47,19 @@ Overview
     :target: https://github.com/PyCQA/bandit
     :alt: Security Status
 
-.. |coveralls| image:: https://coveralls.io/repos/github/0LL13/person/badge.svg?branch=master
-    :target: https://coveralls.io/github/0LL13/person?branch=master
-
 .. list-table::
     :widths: auto 
 
     * - limits
-      - |pypi| |supported-versions| |supported-implementations|
+      - |pypi| |supported-versions| |supported-implementations| |climate|
     * - code
+<<<<<<< HEAD
       - |codacy| |coverage| |coveralls| |climate| |update| |pull| |bandit|
     * - ci
       - |Travis CI|
+=======
+      - |Codacy Badge| |coverage| |build| |update| |pull| |bandit|
+>>>>>>> parent of 10184fb... still trying to ci coverage
     * - legal
       - |license|
     * - read
