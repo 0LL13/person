@@ -50,7 +50,7 @@ class TooManyFirstNames(Exception):
     """
 
     def __init__(self, message):
-        """use like: raise TooManyFirstNames ("message")"""
+        """Usage: raise TooManyFirstNames ("message")."""
         Exception.__init__(self)
         print(message)
 

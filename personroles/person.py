@@ -129,7 +129,7 @@ class _Academic_title_default:
 @dataclass
 class Academic(_Academic_title_default, Name, AttrDisplay):
     def __post_init__(self):
-        """Initialize names of Name and degree"""
+        """Initialize names of Name and degree."""
         Name.__post_init__(self)
         self.degree_title()
 
