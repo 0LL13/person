@@ -7,6 +7,10 @@ Overview
 .. |codecov| image:: https://codecov.io/gh/0LL13/person/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/0LL13/person
 
+.. |climate| image:: https://api.codeclimate.com/v1/badges/714a256d1edf47898a22/maintainability
+   :target: https://codeclimate.com/github/0LL13/person/maintainability
+   :alt: Maintainability
+
 .. |coveralls| image:: https://coveralls.io/repos/github/0LL13/person/badge.svg?branch=master
     :target: https://coveralls.io/github/0LL13/person?branch=master
 
@@ -42,10 +46,6 @@ Overview
     :target: https://github.com/0LL13/person/pulls
     :alt: GitHub pull requests
 
-.. |climate| image:: https://api.codeclimate.com/v1/badges/714a256d1edf47898a22/maintainability
-   :target: https://codeclimate.com/github/0LL13/person/maintainability
-   :alt: Maintainability
-
 .. |bandit| image:: https://img.shields.io/badge/security-bandit-yellow.svg
     :target: https://github.com/PyCQA/bandit
     :alt: Security Status
@@ -63,7 +63,7 @@ Overview
     * - ci
       - |Travis CI|
     * - coverage
-      - |codacy| |coverage| |climate| |coveralls|
+      - |codacy| |codecov| |climate| |coveralls|
     * - legal
       - |license|
     * - read
