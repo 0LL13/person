@@ -43,7 +43,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "personroles"
-copyright = "2020, Oliver Stapel"
+# copyright = "2020, Oliver Stapel"
 author = "Oliver Stapel"
 
 # The version info for the project you're documenting, acts as replacement

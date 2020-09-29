@@ -1,4 +1,5 @@
 """
+
 Module resources provides constants (like GERMAN_PARTIES, PEERTITLES, ...) and
 helper functions like exceptions and data containers like Party that are needed
 for personroles.

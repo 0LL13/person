@@ -51,10 +51,15 @@ class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
     the role of politician and adds a federal state (like "NRW" or "BY") and
     legislature (legislative term) as obligatory informations to define the role.
     More informations like speeches held or offices (like president) filled can be
-    added.
+    added. Call politician's __post_init__ to initialize wards and voters.
     """
 
     def __post_init__(self):
+        """
+        Check if legislature is correct for NRW and add legislature into the
+        mop's list of memberships (in case more than one term is spent in
+        parliament.
+        """
         if int(self.legislature) not in range(14, 18):
             raise NotInRange("Number for legislature not in range")
         else:

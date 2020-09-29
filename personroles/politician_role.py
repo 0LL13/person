@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-A set of dataclasses concerning roles of persons and their particulars.
-
-"""
+"""A set of dataclasses concerning roles of persons and their particulars."""
 import os
 import sys
 from dataclasses import dataclass, field

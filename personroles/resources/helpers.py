@@ -9,18 +9,12 @@ from .constants import GERMAN_PARTIES  # type: ignore  # noqa
 
 class NotInRange(Exception):
 
-    """
-    Until term 13 the available PDF files are scanned in and need OCR to be
-    scraped. Therefore only terms 14 to currently term 17 are accepted.
-    """
+    """For state NRW only terms 14 to currently term 17 are accepted."""
 
 
 class NotGermanParty(Exception):
 
-    """
-    Since this project focusses on Germany the current range of parties that
-    will be accepted is reduced to German parties.
-    """
+    """Only German parties, this will most likely not change."""
 
 
 class TooManyFirstNames(Exception):
@@ -90,5 +84,6 @@ class _Party_default:
 @dataclass
 class Party(_Party_default, _Party_base, AttrDisplay):
     def __post_init__(self):
+        """Checking for German parties."""
         if self.party_name not in GERMAN_PARTIES:
             raise NotGermanParty

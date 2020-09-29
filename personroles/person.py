@@ -42,12 +42,7 @@ class _Name_base:
 @dataclass
 class Name(_Name_default, _Name_base, AttrDisplay):
 
-    """
-    The most basic part to describe a person.
-    To add more middle names, dataclass _Name_default has to be given further
-    middle_name attributes. Since this project currently focusses on German
-    politicians, the limit of three given names is preserved.
-    """
+    """A person's names: first, middle_1, middle_2, last name"""
 
     def __post_init__(self):
         """
