@@ -1,26 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-Helper functions:
-    exceptions:
-        NotInRange (legislature of state)
-        NotGermanParty
-        TooManyFirstNames (in Germany not more than three)
-    print style:
-        AttrDisplay
-    Party:
-        _Party_base:
-            party_name
-        _Party_default:
-            party_entry
-            party_exit
-    planned:
-    Speech:
-        _Speech_base:
-            speech_key
-        _Speech_default:
-            speech_content
-"""
+"""Helper functions: exceptions, print style, Party, ..."""
+
 from dataclasses import dataclass, field
 
 from .constants import GERMAN_PARTIES  # type: ignore  # noqa

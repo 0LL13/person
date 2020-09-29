@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-A set of dataclasses concerning roles of persons and their particulars.
-
-Module person.py is concerned with names and titles (academic and peer).
-"""
+"""A set of dataclasses concerning roles of persons and their particulars."""
 import datetime
 import os
 import sys

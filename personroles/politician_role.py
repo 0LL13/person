@@ -3,9 +3,6 @@
 """
 A set of dataclasses concerning roles of persons and their particulars.
 
-Module politician_role.py is collecting electoral ward, ward no., voter count
-of that ward, minister (like "JM": Justizminister), offices (in case more than
-one ministry position is filled (i.e. ["JM", "FM"]), and parties.
 """
 import os
 import sys
@@ -90,6 +87,13 @@ class Politician(
     helpers._Party_base,
     AttrDisplay,
 ):
+
+    """
+    Module politician_role.py is collecting electoral ward, ward no., voter
+    count of that ward, minister (like "JM": Justizminister), offices (in case
+    more than one ministry position is filled (i.e. ["JM", "FM"]), and parties.
+    """
+
     def __post_init__(self):
         Party.__post_init__(self)
         Person.__post_init__(self)

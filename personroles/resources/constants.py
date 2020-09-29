@@ -1,7 +1,5 @@
 # constants.py
-"""
-Collection of constants
-"""
+"""Collection of constants like GERMAN_PARTIES, PEERTITLES, ..."""
 
 PEER_PREPOSITIONS = [
     "auf",

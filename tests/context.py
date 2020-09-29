@@ -12,7 +12,7 @@ sys.path.append(
 
 from personroles import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
     person,
-)
+)  # pylint: disable=unused-import  # noqa
 
 from personroles.resources import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
     constants,
