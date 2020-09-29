@@ -42,7 +42,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "personroles"
+project = "person"
 # copyright = "2020, Oliver Stapel"
 author = "Oliver Stapel"
 
@@ -159,7 +159,7 @@ html_static_path = ["_static"]
 # -- Options for HTMLHelp output ---------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "personrolesdoc"
+htmlhelp_basename = "persondoc"
 
 # -- Options for LaTeX output ------------------------------------------
 
@@ -184,7 +184,7 @@ latex_elements: Dict[str, str] = {
 latex_documents = [
     (
         master_doc,
-        "personroles.tex",
+        "person.tex",
         "personroles Documentation",
         "Oliver Stapel",
         "manual",
@@ -196,9 +196,7 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [
-    (master_doc, "personroles", "personroles Documentation", [author], 1)
-]  # noqa
+man_pages = [(master_doc, "person", "personroles Documentation", [author], 1)]  # noqa
 
 
 # -- Options for Texinfo output ----------------------------------------
@@ -209,11 +207,11 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "personroles",
+        "person",
         "personroles Documentation",
         author,
-        "personroles",
-        "One line description of project.",
+        "person",
+        "A set of dataclasses concerning roles (academic, politician, ...) of persons.",  # noqa
         "Miscellaneous",
     ),
 ]
