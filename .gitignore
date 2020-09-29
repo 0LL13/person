@@ -13,6 +13,7 @@
 *.pif
 *.vb
 *.wsf
+codacy-coverage-reporter
 
 ### Linux ###
 *~
