@@ -2,7 +2,7 @@
 Usage
 =====
 
-To use person in a project::
+Using person in a project::
 
     from personroles import person
 
