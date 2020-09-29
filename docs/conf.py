@@ -205,8 +205,8 @@ latex_elements: Dict[str, str] = {
 latex_documents = [
     (
         master_doc,
-        "person.tex",
-        "person-roles Documentation",
+        "personroles.tex",
+        "personroles Documentation",
         "Oliver Stapel",
         "manual",
     ),  # noqa
@@ -218,7 +218,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, "person-roles", "person-roles Documentation", [author], 1)
+    (master_doc, "personroles", "personroles Documentation", [author], 1)
 ]  # noqa
 
 
@@ -230,10 +230,10 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "person-roles",
-        "person-roles Documentation",
+        "personroles",
+        "personroles Documentation",
         author,
-        "person-roles",
+        "personroles",
         "One line description of project.",
         "Miscellaneous",
     ),
