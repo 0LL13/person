@@ -23,12 +23,11 @@ build:
     coverage: 
       tests: 
         override: 
-          - 
-            command: ./run-tests.sh
+          - command: './run-tests.sh'
             coverage: 
+              file: '.coverage'
               config_file: .coveragerc
-              file: .coverage
-              format: py-cc
+              format: 'py-cc'
 deploy: 
   distributions: "sdist bdist_wheel"
   provider: pypi
