@@ -1,4 +1,4 @@
-Welcome to person-roles' documentation!
+Welcome to personroles' documentation!
 =======================================
 
 .. toctree::
