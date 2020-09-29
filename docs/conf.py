@@ -159,7 +159,7 @@ html_static_path = ["_static"]
 # -- Options for HTMLHelp output ---------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "persondoc"
+htmlhelp_basename = "personrolesdoc"
 
 # -- Options for LaTeX output ------------------------------------------
 
@@ -184,7 +184,7 @@ latex_elements: Dict[str, str] = {
 latex_documents = [
     (
         master_doc,
-        "person.tex",
+        "personroles.tex",
         "personroles Documentation",
         "Oliver Stapel",
         "manual",
@@ -207,10 +207,10 @@ man_pages = [(master_doc, "person", "personroles Documentation", [author], 1)]  
 texinfo_documents = [
     (
         master_doc,
-        "person",
+        "personroles",
         "personroles Documentation",
         author,
-        "person",
+        "personroles",
         "A set of dataclasses concerning roles (academic, politician, ...) of persons.",  # noqa
         "Miscellaneous",
     ),
