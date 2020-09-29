@@ -91,7 +91,7 @@ These roles have been sketched::
     MoP - legislature, state, parl_pres, parl_vicePres
 
 Usage
-=====
+-----
 ::
 
     from personroles import person
