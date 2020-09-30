@@ -14,6 +14,9 @@ Overview
 .. |coveralls| image:: https://coveralls.io/repos/github/0LL13/person/badge.svg?branch=master
     :target: https://coveralls.io/github/0LL13/person?branch=master
 
+.. |scrutinizer| image:: https://scrutinizer-ci.com/g/0LL13/person/badges/quality-score.png?s=0242cf58f51463f90ec17ee3d1708c07beaddd6624a07e9d228a2e337aa56388
+    :target: https://scrutinizer-ci.com/g/0LL13/person/
+
 .. |supported-versions| image:: https://img.shields.io/pypi/pyversions/personroles.svg
     :target: https://www.python.org/
     :alt: Supported versions
@@ -63,7 +66,7 @@ Overview
     * - ci
       - |Travis CI|
     * - coverage
-      - |codacy| |codecov| |climate| |coveralls|
+      - |codacy| |codecov| |climate| |coveralls| |scrutinizer|
     * - legal
       - |license|
     * - read
