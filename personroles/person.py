@@ -41,7 +41,6 @@ class _Name_base:
 
 @dataclass
 class Name(_Name_default, _Name_base, AttrDisplay):
-
     """A person's names: first, middle_1, middle_2, last name"""
 
     def __post_init__(self):
