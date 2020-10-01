@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 
 Module resources provides constants (like GERMAN_PARTIES, PEERTITLES, ...) and

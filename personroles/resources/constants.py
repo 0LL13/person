@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # constants.py
 """Collection of constants like GERMAN_PARTIES, PEERTITLES, ..."""
 

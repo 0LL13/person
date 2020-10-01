@@ -1,51 +1,73 @@
 Overview
 ========
 
-:deployment:
-    .. image:: https://img.shields.io/pypi/v/personroles
-        :target: https://pypi.org/project/personroles/
+.. |codacy| image:: https://app.codacy.com/project/badge/Grade/5a29d30f3ec7470cb17085a29a4c6a8f
+    :target: https://www.codacy.com/manual/0LL13/person?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0LL13/person&amp;utm_campaign=Badge_Grade)  
 
-    .. image:: https://img.shields.io/pypi/pyversions/personroles.svg
-        :target: https://www.python.org/
+.. |codecov| image:: https://codecov.io/gh/0LL13/person/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/0LL13/person
 
-    .. image:: https://img.shields.io/pypi/implementation/personroles.svg
-        :target: https://realpython.com/cpython-source-code-guide/ 
+.. |climate| image:: https://api.codeclimate.com/v1/badges/714a256d1edf47898a22/maintainability
+   :target: https://codeclimate.com/github/0LL13/person/maintainability
+   :alt: Maintainability
 
-:test/coverage:
-    .. image:: https://app.codacy.com/project/badge/Grade/5a29d30f3ec7470cb17085a29a4c6a8f
-        :target: https://www.codacy.com/manual/0LL13/person?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0LL13/person&amp;utm_campaign=Badge_Grade)  
+.. |coveralls| image:: https://coveralls.io/repos/github/0LL13/person/badge.svg?branch=master
+    :target: https://coveralls.io/github/0LL13/person?branch=master
 
-    .. image:: https://codecov.io/gh/0LL13/person/branch/master/graph/badge.svg
-        :target: https://codecov.io/gh/0LL13/person
+.. |scrutinizer| image:: https://scrutinizer-ci.com/g/0LL13/person/badges/quality-score.png?s=0242cf58f51463f90ec17ee3d1708c07beaddd6624a07e9d228a2e337aa56388
+    :target: https://scrutinizer-ci.com/g/0LL13/person/
 
-    .. image:: https://api.codeclimate.com/v1/badges/714a256d1edf47898a22/maintainability
-       :target: https://codeclimate.com/github/0LL13/person/maintainability
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/personroles.svg
+    :target: https://www.python.org/
+    :alt: Supported versions
 
-    .. image:: https://coveralls.io/repos/github/0LL13/person/badge.svg?branch=master
-        :target: https://coveralls.io/github/0LL13/person?branch=master
+.. |Travis CI| image:: https://travis-ci.org/0LL13/person.svg?branch=master
+    :target: https://travis-ci.org/github/0LL13/person
+    :alt: Travis-CI Build Status
 
-    .. image:: https://scrutinizer-ci.com/g/0LL13/person/badges/quality-score.png?s=0242cf58f51463f90ec17ee3d1708c07beaddd6624a07e9d228a2e337aa56388
-        :target: https://scrutinizer-ci.com/g/0LL13/person/
+.. |docs| image:: https://readthedocs.org/projects/person/badge/?version=latest
+    :target: https://person.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
-:build status:
-    .. image:: https://travis-ci.org/0LL13/person.svg?branch=master
-        :target: https://travis-ci.org/github/0LL13/person
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/personroles.svg
+    :target: https://realpython.com/cpython-source-code-guide/ 
+    :alt: Supported implementations
 
-    .. image:: https://pyup.io/repos/github/0LL13/person/shield.svg
-        :target: https://pyup.io/repos/github/0LL13/person/
+.. |license| image:: https://img.shields.io/github/license/0LL13/person
+    :target: https://opensource.org/licenses/MIT
+    :alt: GitHub
 
-    .. image:: https://img.shields.io/github/issues-pr/0LL13/person
-        :target: https://github.com/0LL13/person/pulls
+.. |update| image:: https://pyup.io/repos/github/0LL13/person/shield.svg
+    :target: https://pyup.io/repos/github/0LL13/person/
+    :alt: Updates
 
-    .. image:: https://img.shields.io/badge/security-bandit-yellow.svg
-        :target: https://github.com/PyCQA/bandit
+.. |pypi| image:: https://img.shields.io/pypi/v/personroles
+    :target: https://pypi.org/project/personroles/
+    :alt: PyPI
 
-:docs:
-    .. image:: https://readthedocs.org/projects/person/badge/?version=latest
-        :target: https://person.readthedocs.io/en/latest/?badge=latest
+.. |pull| image:: https://img.shields.io/github/issues-pr/0LL13/person
+    :target: https://github.com/0LL13/person/pulls
+    :alt: GitHub pull requests
 
-    .. image:: https://img.shields.io/github/license/0LL13/person
-        :target: https://opensource.org/licenses/MIT
+.. |bandit| image:: https://img.shields.io/badge/security-bandit-yellow.svg
+    :target: https://github.com/PyCQA/bandit
+    :alt: Security Status
+
+.. list-table:: personroles
+   :widths: auto 
+
+    * - limits
+      - |pypi| |supported-versions| |supported-implementations|
+    * - code
+      - |update| |pull| |bandit|
+    * - ci
+      - |Travis CI|
+    * - coverage
+      - |codacy| |codecov| |climate| |coveralls| |scrutinizer|
+    * - legal
+      - |license|
+    * - read
+      - |docs|
 
 A set of dataclasses concerning roles (academic, politician, ...)  of persons and their particulars
 

@@ -8,17 +8,14 @@ from .constants import GERMAN_PARTIES  # type: ignore  # noqa
 
 
 class NotInRange(Exception):
-
     """For state NRW only terms 14 to currently term 17 are accepted."""
 
 
 class NotGermanParty(Exception):
-
     """Only German parties, this will most likely not change."""
 
 
 class TooManyFirstNames(Exception):
-
     """
     Currently only one first name and two middle names are supported.
     Example: Tom H. Paul last_name
@@ -31,7 +28,6 @@ class TooManyFirstNames(Exception):
 
 
 class AttrDisplay:
-
     """
     Mark Lutz, Programming Python
     Provides an inheritable display overload method that shows instances
@@ -72,17 +68,20 @@ class AttrDisplay:
 
 @dataclass
 class _Party_base:
+    """Name of party is required, surprisingly."""
     party_name: str  # type: ignore  # noqa
 
 
 @dataclass
 class _Party_default:
+    """Party entry and exit are possible additions, if known."""
     party_entry: str = field(default="unknown")
     party_exit: str = field(default="unknown")
 
 
 @dataclass
 class Party(_Party_default, _Party_base, AttrDisplay):
+    """Collect party name and entry/exit data."""
     def __post_init__(self):
         """Checking for German parties."""
         if self.party_name not in GERMAN_PARTIES:

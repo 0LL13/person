@@ -26,6 +26,7 @@ from personroles.resources.helpers import Party  # type: ignore # noqa
 
 @dataclass
 class _Politician_default:
+    """Data about the politician's party, ward and office(s)."""
     electoral_ward: str = field(default="ew")
     ward_no: Optional[int] = field(default=None)
     voter_count: Optional[int] = field(default=None)
@@ -34,6 +35,7 @@ class _Politician_default:
     parties: List[str] = field(default_factory=lambda: [])
 
     def renamed_wards(self):
+        """Some electoral wards have been renamed in the Wikipedia."""
         wards = {
             "Kreis Aachen I": "Aachen III",
             "Hochsauerlandkreis II – Soest III": "Hochsauerlandkreis II",
@@ -45,6 +47,7 @@ class _Politician_default:
             self.electoral_ward = wards[self.electoral_ward]
 
     def scrape_wiki_for_ward(self) -> None:
+        """Find tables in Wikipedia containing informations about electoral wards."""  # noqa
         import requests
         from bs4 import BeautifulSoup  # type: ignore
 

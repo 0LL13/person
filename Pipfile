@@ -20,6 +20,8 @@ tinydb = "*"
 bandit = "*"
 check-manifest = "*"
 pre-commit = "*"
+isort = "*"
+twine = "*"
 
 [requires]
 python_version = "3.8"

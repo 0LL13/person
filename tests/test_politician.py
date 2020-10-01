@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 # test_person.py
 """Tests for `person` package."""
 import pytest
