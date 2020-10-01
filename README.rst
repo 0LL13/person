@@ -130,6 +130,7 @@ Installation
 Contribute
 ----------
 
+**Please fork first and use for your own ends.**
 This package is structured like this:
 
 ::
@@ -150,9 +151,7 @@ This package is structured like this:
 
 Because of its modular structure, all you need to do is add another role as
 "your-contribution_role.py", and another test as "test_your-contribution.py".
-**Please fork first and use for your own ends.** Pull requests with additional
-roles will be ignored. The idea of this package is to enable others to write
-their own roles.
+Use current \*_role modules as blueprint and delete if not needed.
 
 Support
 -------
