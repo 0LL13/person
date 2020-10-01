@@ -132,22 +132,23 @@ Contribute
 
 This package is structured like this:
 
-::
-    personroles
-    |---mop_role.py
-    |---person.py
-    |---politician_role.py
-    |---your-contribution_role.py ?!
-    |---resources
-    |   |---constants.py
-    |   |---helpers.py
-    |   |---your-contribution.py ?!
-    |---tests
-    |   |---test_mop.py
-    |   |---test_person.py
-    |   |---test_politician.py
-    |   |---test_your-contribution.py ?!
-    |...
+| personroles
+| |---mop_role.py
+| |---person.py
+| |---politician_role.py
+| |---your-contribution_role.py ?!
+| |---resources
+| |   |---constants.py
+| |   |---helpers.py
+| |   |---your-contribution.py ?!
+| |---tests
+| |   |---test_mop.py
+| |   |---test_person.py
+| |   |---test_politician.py
+| |   |---test_your-contribution.py ?!
+| |...
+|
+|
 
 Because of its modular structure, all you need to do is add another role as
 "your-contribution_role.py", and another test as "test_your-contribution.py".
