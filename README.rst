@@ -138,13 +138,13 @@ This package is structured like this:
 |   ├── politician_role.py
 |   ├── your-contribution_role.py
 |   ├── resources
-|   │     ├── constants.py
-|   │     └── helpers.py
+|   │        ├── constants.py
+|   │        └── helpers.py
 |   └── tests
-|         ├── test_mop.py
-|         ├── test_person.py
-|         ├── test_politician.py
-|         └── test_your-contribution.py
+|            ├── test_mop.py
+|            ├── test_person.py
+|            ├── test_politician.py
+|            └── test_your-contribution.py
 |
 |
 
