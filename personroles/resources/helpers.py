@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 """Helper functions: exceptions, print style, Party, ..."""
 
+import random
 from dataclasses import dataclass, field
+from typing import List
 
 from .constants import GERMAN_PARTIES  # type: ignore  # noqa
 
@@ -86,3 +88,56 @@ class Party(_Party_default, _Party_base, AttrDisplay):
         """Checking for German parties."""
         if self.party_name not in GERMAN_PARTIES:
             raise NotGermanParty
+
+
+# https://codereview.stackexchange.com/questions/200355/generating-a-unique-key
+def generate_unique_key():
+    array = []
+    for letter in range(97, 123):
+        array.append(chr(letter))
+    for letter in range(65, 91):
+        array.append(chr(letter))
+    for number in range(0, 10):
+        array.append(number)
+
+    random_values = random.sample(array, 5)
+    random_values = map(lambda x: str(x), random_values)
+    return "".join(random_values)
+
+
+@dataclass
+class _Session_base:
+    """Session minimum informations."""
+    state: str
+    term: str
+    date: str
+    protocol_nr: str
+
+
+@dataclass
+class _Session_default:
+    """Session additional informations."""
+    page_from: str = field(default="unknown")
+    page_to: str = field(default="unknown")
+    expletive: str = field(default="unknown")
+    kind: str = field(default="unknown")
+    result: str = field(default="unknown")
+    classification: str = field(default="unknown")
+    tags: List[str] = field(
+        default_factory=lambda: []
+    )  # noqa
+    region: str = field(default="unknown")
+    speakers: List[str] = field(
+        default_factory=lambda: []
+    )  # noqa
+
+
+@dataclass
+class Session(_Session_default, _Session_base, AttrDisplay):
+    """A session's details."""
+
+
+@dataclass
+class _Input_base:
+    """A member of parliament's contribution."""
+    key: str

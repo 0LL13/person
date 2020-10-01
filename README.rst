@@ -33,6 +33,7 @@ Overview
 
     .. image:: https://pyup.io/repos/github/0LL13/person/shield.svg
         :target: https://pyup.io/repos/github/0LL13/person/
+        :alt: Updates
 
     .. image:: https://img.shields.io/github/issues-pr/0LL13/person
         :target: https://github.com/0LL13/person/pulls
@@ -129,16 +130,35 @@ Installation
 Contribute
 ----------
 
-| `Issue Tracker`_
-| Source_
+This package is structured like this:
 
-.. _`Issue Tracker`: https://github.com/0LL13/person/issues
-.. _Source: https://github.com/0LL13/person
+::
+    personroles
+    |---mop_role.py
+    |---person.py
+    |---politician_role.py
+    |---your-contribution_role.py ?!
+    |---resources
+    |   |---constants.py
+    |   |---helpers.py
+    |   |---your-contribution.py ?!
+    |---tests
+    |   |---test_mop.py
+    |   |---test_person.py
+    |   |---test_politician.py
+    |   |---test_your-contribution.py ?!
+    |...
+
+Because of its modular structure, all you need to do is add another role as
+"your-contribution_role.py", and another test as "test_your-contribution.py".
+**Please fork first and use for your own ends.** Pull requests with additional
+roles will be ignored. The idea of this package is to enable others to write
+their own roles.
 
 Support
 -------
 
-Feel free to fork and improve.
+Fork and improve.
 
 Warranty
 --------
