@@ -1,63 +1,6 @@
 Overview
 ========
 
-.. |codacy| image:: https://app.codacy.com/project/badge/Grade/5a29d30f3ec7470cb17085a29a4c6a8f
-    :target: https://www.codacy.com/manual/0LL13/person?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0LL13/person&amp;utm_campaign=Badge_Grade)  
-
-.. |codecov| image:: https://codecov.io/gh/0LL13/person/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/0LL13/person
-
-.. |climate| image:: https://api.codeclimate.com/v1/badges/714a256d1edf47898a22/maintainability
-   :target: https://codeclimate.com/github/0LL13/person/maintainability
-   :alt: Maintainability
-
-.. |coveralls| image:: https://coveralls.io/repos/github/0LL13/person/badge.svg?branch=master
-    :target: https://coveralls.io/github/0LL13/person?branch=master
-
-.. |scrutinizer| image:: https://scrutinizer-ci.com/g/0LL13/person/badges/quality-score.png?s=0242cf58f51463f90ec17ee3d1708c07beaddd6624a07e9d228a2e337aa56388
-    :target: https://scrutinizer-ci.com/g/0LL13/person/
-
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/personroles.svg
-    :target: https://www.python.org/
-    :alt: Supported versions
-
-.. |Travis CI| image:: https://travis-ci.org/0LL13/person.svg?branch=master
-    :target: https://travis-ci.org/github/0LL13/person
-    :alt: Travis-CI Build Status
-
-.. |docs| image:: https://readthedocs.org/projects/person/badge/?version=latest
-    :target: https://person.readthedocs.io/en/latest/?badge=latest
-    :alt: Documentation Status
-
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/personroles.svg
-    :target: https://realpython.com/cpython-source-code-guide/ 
-    :alt: Supported implementations
-
-.. |license| image:: https://img.shields.io/github/license/0LL13/person
-    :target: https://opensource.org/licenses/MIT
-    :alt: GitHub
-
-.. |update| image:: https://pyup.io/repos/github/0LL13/person/shield.svg
-    :target: https://pyup.io/repos/github/0LL13/person/
-    :alt: Updates
-
-.. |pypi| image:: https://img.shields.io/pypi/v/personroles
-    :target: https://pypi.org/project/personroles/
-    :alt: PyPI
-
-.. |pull| image:: https://img.shields.io/github/issues-pr/0LL13/person
-    :target: https://github.com/0LL13/person/pulls
-    :alt: GitHub pull requests
-
-.. |bandit| image:: https://img.shields.io/badge/security-bandit-yellow.svg
-    :target: https://github.com/PyCQA/bandit
-    :alt: Security Status
-
-.. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/psf/black
-
-.. list-table::
-    :widths: auto 
 
     * - limits
       - |pypi| |supported-versions| |supported-implementations|
@@ -192,3 +135,62 @@ License
 MIT License
 
 Copyright (c) 2020 Oliver Stapel
+
+.. |codacy| image:: https://app.codacy.com/project/badge/Grade/5a29d30f3ec7470cb17085a29a4c6a8f
+    :target: https://www.codacy.com/manual/0LL13/person?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=0LL13/person&amp;utm_campaign=Badge_Grade)  
+
+.. |codecov| image:: https://codecov.io/gh/0LL13/person/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/0LL13/person
+
+.. |climate| image:: https://api.codeclimate.com/v1/badges/714a256d1edf47898a22/maintainability
+   :target: https://codeclimate.com/github/0LL13/person/maintainability
+   :alt: Maintainability
+
+.. |coveralls| image:: https://coveralls.io/repos/github/0LL13/person/badge.svg?branch=master
+    :target: https://coveralls.io/github/0LL13/person?branch=master
+
+.. |scrutinizer| image:: https://scrutinizer-ci.com/g/0LL13/person/badges/quality-score.png?s=0242cf58f51463f90ec17ee3d1708c07beaddd6624a07e9d228a2e337aa56388
+    :target: https://scrutinizer-ci.com/g/0LL13/person/
+
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/personroles.svg
+    :target: https://www.python.org/
+    :alt: Supported versions
+
+.. |Travis CI| image:: https://travis-ci.org/0LL13/person.svg?branch=master
+    :target: https://travis-ci.org/github/0LL13/person
+    :alt: Travis-CI Build Status
+
+.. |docs| image:: https://readthedocs.org/projects/person/badge/?version=latest
+    :target: https://person.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/personroles.svg
+    :target: https://realpython.com/cpython-source-code-guide/ 
+    :alt: Supported implementations
+
+.. |license| image:: https://img.shields.io/github/license/0LL13/person
+    :target: https://opensource.org/licenses/MIT
+    :alt: GitHub
+
+.. |update| image:: https://pyup.io/repos/github/0LL13/person/shield.svg
+    :target: https://pyup.io/repos/github/0LL13/person/
+    :alt: Updates
+
+.. |pypi| image:: https://img.shields.io/pypi/v/personroles
+    :target: https://pypi.org/project/personroles/
+    :alt: PyPI
+
+.. |pull| image:: https://img.shields.io/github/issues-pr/0LL13/person
+    :target: https://github.com/0LL13/person/pulls
+    :alt: GitHub pull requests
+
+.. |bandit| image:: https://img.shields.io/badge/security-bandit-yellow.svg
+    :target: https://github.com/PyCQA/bandit
+    :alt: Security Status
+
+.. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+
+.. list-table::
+    :widths: auto 
+

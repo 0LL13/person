@@ -22,6 +22,7 @@ include tox.ini
 include *.html
 include *.yaml
 include .coveragerc
+include *.lock
 include Pipfile
 recursive-include reports *.css
 recursive-include reports *.html
