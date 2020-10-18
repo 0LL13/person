@@ -18,10 +18,12 @@ sys.path.append(
 from personroles.politician_role import Politician  # type: ignore  # noqa
 from personroles.resources.helpers import AttrDisplay  # type: ignore # noqa
 from personroles.resources.helpers import NotInRange  # type: ignore # noqa
+from personroles.resources.mop_tinyDB import MopsDB  # type: ignore # noqa
 
 
 @dataclass
 class _MoP_default:
+    key: str = field(default="")  # noqa
     parl_pres: bool = field(default=False)
     parl_vicePres: bool = field(default=False)
     parliament_entry: str = field(default="unknown")  # date string: "11.3.2015"  # noqa
@@ -47,11 +49,12 @@ class _MoP_base:
 class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
 
     """
-    Module mop_role.py covers the role as member of parliament. The role integrates
-    the role of politician and adds a federal state (like "NRW" or "BY") and
-    legislature (legislative term) as obligatory informations to define the role.
-    More informations like speeches held or offices (like president) filled can be
-    added. Call politician's __post_init__ to initialize wards and voters.
+    Module mop_role.py covers the role as member of parliament. The role
+    integrates the role of politician and adds a federal state (like "NRW" or
+    "BY") and legislature (legislative term) as obligatory informations to
+    define the role. More informations like speeches held or offices (like
+    president) filled can be added. Call politician's __post_init__ to
+    initialize wards and voters.
     """
 
     def __post_init__(self):
@@ -84,3 +87,9 @@ if __name__ == "__main__":
     mop.add_Party("Grüne", party_entry="30.11.1999")
     mop.change_ward("Düsseldorf II")
     print(mop)
+
+    print(mop.__dict__)
+
+    mop_db = MopsDB(".")
+    mop_key = mop_db.join(mop)
+    print(mop_db.fetch(mop_key))

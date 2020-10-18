@@ -158,6 +158,11 @@ Support
 
 Fork and improve.
 
+Planned
+-------
+
+Add TinyDB database.
+
 Warranty
 --------
 

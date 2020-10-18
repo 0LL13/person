@@ -13,6 +13,7 @@ requirements = [
     "lxml",
     "requests",
     "gender-guesser",
+    "tinydb"
 ]
 
 setup_requirements = [
