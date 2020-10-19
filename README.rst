@@ -33,7 +33,6 @@ Overview
 
     .. image:: https://pyup.io/repos/github/0LL13/person/shield.svg
         :target: https://pyup.io/repos/github/0LL13/person/
-        :alt: Updates
 
     .. image:: https://img.shields.io/github/issues-pr/0LL13/person
         :target: https://github.com/0LL13/person/pulls
@@ -123,8 +122,9 @@ Installation
 
     pip install personroles
 
-    or 
+or 
 
+::
     pipenv install personroles
 
 Contribute
