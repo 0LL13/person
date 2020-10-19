@@ -92,15 +92,16 @@ class Party(_Party_default, _Party_base, AttrDisplay):
 
 # https://codereview.stackexchange.com/questions/200355/generating-a-unique-key
 def generate_unique_key():
-    array = []
+    lst = list()
     for letter in range(97, 123):
-        array.append(chr(letter))
+        lst.append(chr(letter))
     for letter in range(65, 91):
-        array.append(chr(letter))
-    for number in range(0, 10):
-        array.append(number)
+        lst.append(chr(letter))
+    for number in range(1, 10):
+        lst.append(number)
 
-    random_values = random.sample(array, 5)
+    random_values = random.sample(lst, 5)
+    print(random_values)
     random_values = map(lambda x: str(x), random_values)
     return "".join(random_values)
 
