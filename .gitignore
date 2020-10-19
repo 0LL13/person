@@ -1,6 +1,10 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,linux,executable
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,linux,executable
+# Modified later on
+
+### .json Database ###
+.mop_db.json
 
 ### Executable ###
 *.app
