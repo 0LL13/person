@@ -3,3 +3,5 @@ engines:
   pylint:
     enabled: true
     python_version: 3
+env:
+  - CODACY_PROJECT_TOKEN=0Nw42iB72Ht6mszq2VuF
