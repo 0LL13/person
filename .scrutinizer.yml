@@ -2,7 +2,7 @@ checks:
     python:
         code_rating: true
         duplicate_code: true
-    javascript: true
+    javascript: false
 build:
     nodes:
         analysis:
@@ -15,8 +15,6 @@ build:
                     -
                         command: pylint-run
                         use_website_config: true
-                    - js-scrutinizer-run
-        tests: true
 filter:
     excluded_paths:
         - '*/tests/*'
