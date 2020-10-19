@@ -130,8 +130,8 @@ Installation
 Contribute
 ----------
 
-**Please fork first and use for your own ends.**
-This package is structured like this:
+| **Please fork first and use for your own ends.**
+| This package is structured like this:
 
 ::
 
