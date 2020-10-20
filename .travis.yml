@@ -23,7 +23,8 @@ build:
     coverage: 
       tests: 
         override: 
-          - command: './run-tests.sh'
+          - command: 'pytest'
+#           - command: './run-tests.sh'
             coverage: 
               file: '.coverage'
               config_file: '.coveragerc'
