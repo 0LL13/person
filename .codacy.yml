@@ -1,9 +1,17 @@
 ---
-engines:
-  pylintpython3:
-    enabled: true
-env:
-  - CODACY_PROJECT_TOKEN=c2999183e7844bb78ac468a4388306d0
-language: python
-python:
-  - 3.8
+jobs:
+  codacy-coverage-reporter:
+    runs-on: ubuntu-latest
+    name: codacy-coverage-reporter
+    steps:
+      - 
+        uses: actions/checkout@master
+      - 
+        name: "Run codacy-coverage-master"
+        uses: .codacy-coverage/codacy-coverage-reporter
+        with:
+          coverage-reports: .coverage
+          project-token: c2999183e7844bb78ac468a4388306d0
+name: codacy-coverage-reporter
+true:
+  - push
