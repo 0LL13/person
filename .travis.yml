@@ -30,7 +30,7 @@ build:
               file: '.coverage'
               config_file: '.coveragerc'
 #              format: 'py-cc'
-deploy: 
+# deploy: 
 #  distributions: "sdist bdist_wheel"
 #  provider: pypi
 #  true: 
@@ -38,8 +38,9 @@ deploy:
 #    repo: "https://pypi.org/project/personroles/"
 #    tags: true
 #  user: O_live_rSt_apel
-  provider: script
-  script: bash ./codacy_deploy.sh
+
+#  provider: script
+#  script: bash ./codacy_deploy.sh
 env: 
   global:
   - TOX_ENV=py38
