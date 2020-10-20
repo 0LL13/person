@@ -48,5 +48,4 @@ python:
 install: 
   - "pip install -U tox-travis \".[test]\" ."
 script: 
-  - coverage report
   - tox
