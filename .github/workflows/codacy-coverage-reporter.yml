@@ -11,7 +11,7 @@ jobs:
         uses: codacy/codacy-coverage-reporter-action@master
         with:
           coverage-reports: .coverage
-          project-token: $CODACY_PROJECT_TOKEN
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
 name: codacy-coverage-reporter
 true:
   - push
