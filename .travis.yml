@@ -31,16 +31,16 @@ build:
               config_file: '.coveragerc'
 #              format: 'py-cc'
 deploy: 
-#  distributions: "sdist bdist_wheel"
-#  provider: pypi
-#  true: 
-#    python: "3.8"
-#    repo: "https://pypi.org/project/personroles/"
-#    tags: true
-#  user: O_live_rSt_apel
+  distributions: "sdist bdist_wheel"
+  provider: pypi
+  true: 
+    python: "3.8"
+    repo: "https://pypi.org/project/personroles/"
+    tags: true
+  user: O_live_rSt_apel
 
-  provider: script
-  script: bash ./codacy_deploy.sh
+#  provider: script
+#  script: bash ./codacy_deploy.sh
 env: 
   global:
   - TOX_ENV=py38
