@@ -22,6 +22,7 @@ check-manifest = "*"
 pre-commit = "*"
 isort = "*"
 twine = "*"
+codacy-coverage = "*"
 
 [requires]
 python_version = "3.8"

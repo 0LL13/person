@@ -24,6 +24,7 @@ include *.html
 include *.yaml
 include .coveragerc
 include *.lock
+include *.sh
 include Pipfile
 recursive-include reports *.css
 recursive-include reports *.html
