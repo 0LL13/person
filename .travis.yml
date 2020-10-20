@@ -12,8 +12,8 @@ before_install:
   - "python --version"
   - "pip install -U pip"
   - "pip install -U pytest"
-  - "pip install codecov"
-  - "pip install codacy-coverage"
+#  - "pip install codecov"
+#  - "pip install codacy-coverage"
   - "sudo apt-get install jq"
 before_script: ~
 branches: 
