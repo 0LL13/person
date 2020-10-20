@@ -49,4 +49,5 @@ jobs:
 install: 
   - "pip install -U tox-travis \".[test]\" ."
 script: 
+  - coverage run --source=personroles
   - tox
