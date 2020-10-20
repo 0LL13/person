@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """
+Some constants declarations, print styling, exceptions, and another container.
 
 Module resources provides constants (like GERMAN_PARTIES, PEERTITLES, ...) and
 helper functions like exceptions and data containers like Party that are needed

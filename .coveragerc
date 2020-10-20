@@ -5,17 +5,18 @@ omit = tests/*
 [paths]
 source = personroles/
 
-[build]
-    nodes:
-      coverage:
-        tests:
-          override:
-            - command: 'pytest --cov=personroles --cov-report=term-missing'
-;            - command: './run-rests.sh'
-              coverage:
-                file: '.coverage'
-                config_file: '.coveragerc'
-                format: 'py-cc'
+;[build]
+;    nodes:
+;      coverage:
+;        tests:
+;          override:
+;            - command: 'pytest --cov=personroles --cov-report=term-missing'
+;;            - command: './run-rests.sh'
+;              coverage:
+;                file: '.coverage'
+;                config_file: '.coveragerc'
+;                format: 'py-cc'
+
 [report]
 omit =
     *site-packages*

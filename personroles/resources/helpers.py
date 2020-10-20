@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Helper functions: exceptions, print style, Party, ..."""
-
 import random
 from dataclasses import dataclass, field
 from typing import List
@@ -10,10 +9,12 @@ from .constants import GERMAN_PARTIES  # type: ignore  # noqa
 
 
 class NotInRange(Exception):
+
     """For state NRW only terms 14 to currently term 17 are accepted."""
 
 
 class NotGermanParty(Exception):
+
     """Only German parties, this will most likely not change."""
 
 
@@ -70,7 +71,7 @@ class AttrDisplay:
 
 @dataclass
 class _Party_base:
-    """Name of party is required, surprisingly."""
+    """Name of party is required."""
     party_name: str  # type: ignore  # noqa
 
 
@@ -135,10 +136,12 @@ class _Session_default:
 
 @dataclass
 class Session(_Session_default, _Session_base, AttrDisplay):
+
     """A session's details."""
 
 
 @dataclass
 class _Input_base:
+
     """A member of parliament's contribution."""
     key: str
