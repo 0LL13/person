@@ -1,15 +1,17 @@
-name: codacy-coverage-reporter
-
-on: ["push"]
-
+---
 jobs:
   codacy-coverage-reporter:
     runs-on: ubuntu-latest
     name: codacy-coverage-reporter
     steps:
-      - uses: actions/checkout@master
-      - name: Run codacy-coverage-reporter
+      - 
+        uses: actions/checkout@master
+      - 
+        name: "Run codacy-coverage-master"
         uses: codacy/codacy-coverage-reporter-action@master
         with:
-          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: .coverage
+          project-token: ${{ secrets.c2999183e7844bb78ac468a4388306d0 }}
+name: codacy-coverage-reporter
+true:
+  - push
