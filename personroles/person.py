@@ -45,6 +45,8 @@ class Name(_Name_default, _Name_base, AttrDisplay):
 
     def __post_init__(self):
         """
+        Initializing the names of a person.
+
         In case a Name instance is initialized with all first names in one
         string, __post_init__ will take care of this and assign each first
         name its attribute. Also it will raise TooManyFirstNames if more than

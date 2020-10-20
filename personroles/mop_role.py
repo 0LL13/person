@@ -5,7 +5,7 @@
 import os
 import sys
 from dataclasses import dataclass, field
-from typing import List, Set
+from typing import List, Optional, Set
 
 PACKAGE_PARENT = ".."
 SCRIPT_DIR = os.path.dirname(
@@ -24,6 +24,9 @@ from personroles.resources.mop_tinyDB import MopsDB  # type: ignore # noqa
 @dataclass
 class _MoP_default:
     key: str = field(default="")  # noqa
+    electoral_ward: str = field(default="ew")
+    ward_no: Optional[int] = field(default=None)
+    voter_count: Optional[int] = field(default=None)
     parl_pres: bool = field(default=False)
     parl_vicePres: bool = field(default=False)
     parliament_entry: str = field(default="unknown")  # date string: "11.3.2015"  # noqa
@@ -38,6 +41,50 @@ class _MoP_default:
         default_factory=lambda: set()
     )  # years like ["2010", "2011", ...]
 
+    def renamed_wards(self):
+        """Some electoral wards have been renamed in the Wikipedia."""
+        wards = {
+            "Kreis Aachen I": "Aachen III",
+            "Hochsauerlandkreis II – Soest III": "Hochsauerlandkreis II",
+            "Kreis Aachen II": "Aachen IV"
+            if self.last_name in ["Wirtz", "Weidenhaupt"]
+            else "Kreis Aachen I",
+        }
+        if self.electoral_ward in wards.keys():
+            self.electoral_ward = wards[self.electoral_ward]
+
+    def scrape_wiki_for_ward(self) -> None:
+        """Find tables in Wikipedia containing informations about electoral wards."""  # noqa
+        import requests
+        from bs4 import BeautifulSoup  # type: ignore
+
+        URL_base = "https://de.wikipedia.org/wiki/Landtagswahlkreis_{}"
+        URL = URL_base.format(self.electoral_ward)
+        req = requests.get(URL)
+        bsObj = BeautifulSoup(req.text, "lxml")
+        table = bsObj.find(class_="infobox float-right toptextcells")
+        self.scrape_wiki_table_for_ward(table)
+
+    def scrape_wiki_table_for_ward(self, table) -> None:
+        for td in table.find_all("td"):
+            if "Wahlkreisnummer" in td.text:
+                ward_no = td.find_next().text.strip()
+                ward_no = ward_no.split(" ")[0]
+                self.ward_no = int(ward_no)
+            elif "Wahlberechtigte" in td.text:
+                voter_count = td.find_next().text.strip()
+                voter_count = self.fix_voter_count(voter_count)
+                self.voter_count = int(voter_count)
+
+    def fix_voter_count(self, voter_count):
+        if voter_count[-1] == "]":
+            voter_count = voter_count[:-3]
+        if " " in voter_count:
+            voter_count = "".join(voter_count.split(" "))
+        else:
+            voter_count = "".join(voter_count.split("."))
+        return voter_count
+
 
 @dataclass
 class _MoP_base:
@@ -49,12 +96,13 @@ class _MoP_base:
 class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
 
     """
-    Module mop_role.py covers the role as member of parliament. The role
-    integrates the role of politician and adds a federal state (like "NRW" or
-    "BY") and legislature (legislative term) as obligatory informations to
-    define the role. More informations like speeches held or offices (like
-    president) filled can be added. Call politician's __post_init__ to
-    initialize wards and voters.
+    Module mop_role.py covers the role as member of parliament.
+
+    The role integrates the role of politician and adds a federal state (like
+    "NRW" or "BY") and legislature (legislative term) as obligatory
+    informations to define the role. More informations like speeches held or
+    offices (like president) filled can be added. Call politician's
+    __post_init__ to initialize wards and voters.
     """
 
     def __post_init__(self):
@@ -68,6 +116,16 @@ class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
         else:
             self.membership.add(self.legislature)
         Politician.__post_init__(self)
+        self.change_ward()
+
+    def change_ward(self, ward=None):
+        if ward:
+            self.electoral_ward = ward
+        if self.electoral_ward not in ["ew", "Landesliste"]:
+            self.renamed_wards()
+            self.scrape_wiki_for_ward()
+        else:
+            self.electoral_ward = "ew"
 
 
 if __name__ == "__main__":

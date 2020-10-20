@@ -26,57 +26,11 @@ from personroles.resources.helpers import Party  # type: ignore # noqa
 
 @dataclass
 class _Politician_default:
-    """Data about the politician's party, ward and office(s)."""
-    electoral_ward: str = field(default="ew")
-    ward_no: Optional[int] = field(default=None)
-    voter_count: Optional[int] = field(default=None)
+
+    """Data about a politician's party and office(s)."""
+    parties: List[str] = field(default_factory=lambda: [])
     minister: Optional[str] = field(default=None)
     offices: List[str] = field(default_factory=lambda: [])
-    parties: List[str] = field(default_factory=lambda: [])
-
-    def renamed_wards(self):
-        """Some electoral wards have been renamed in the Wikipedia."""
-        wards = {
-            "Kreis Aachen I": "Aachen III",
-            "Hochsauerlandkreis II – Soest III": "Hochsauerlandkreis II",
-            "Kreis Aachen II": "Aachen IV"
-            if self.last_name in ["Wirtz", "Weidenhaupt"]
-            else "Kreis Aachen I",
-        }
-        if self.electoral_ward in wards.keys():
-            self.electoral_ward = wards[self.electoral_ward]
-
-    def scrape_wiki_for_ward(self) -> None:
-        """Find tables in Wikipedia containing informations about electoral wards."""  # noqa
-        import requests
-        from bs4 import BeautifulSoup  # type: ignore
-
-        URL_base = "https://de.wikipedia.org/wiki/Landtagswahlkreis_{}"
-        URL = URL_base.format(self.electoral_ward)
-        req = requests.get(URL)
-        bsObj = BeautifulSoup(req.text, "lxml")
-        table = bsObj.find(class_="infobox float-right toptextcells")
-        self.scrape_wiki_table_for_ward(table)
-
-    def scrape_wiki_table_for_ward(self, table) -> None:
-        for td in table.find_all("td"):
-            if "Wahlkreisnummer" in td.text:
-                ward_no = td.find_next().text.strip()
-                ward_no = ward_no.split(" ")[0]
-                self.ward_no = int(ward_no)
-            elif "Wahlberechtigte" in td.text:
-                voter_count = td.find_next().text.strip()
-                voter_count = self.fix_voter_count(voter_count)
-                self.voter_count = int(voter_count)
-
-    def fix_voter_count(self, voter_count):
-        if voter_count[-1] == "]":
-            voter_count = voter_count[:-3]
-        if " " in voter_count:
-            voter_count = "".join(voter_count.split(" "))
-        else:
-            voter_count = "".join(voter_count.split("."))
-        return voter_count
 
 
 @dataclass
@@ -89,9 +43,11 @@ class Politician(
 ):
 
     """
-    Module politician_role.py is collecting electoral ward, ward no., voter
-    count of that ward, minister (like "JM": Justizminister), offices (in case
-    more than one ministry position is filled (i.e. ["JM", "FM"]), and parties.
+    A politician's basic data.
+
+    Module politician_role.py is collecting party affiliation, minister (like
+    "JM": Justizminister), offices (in case more than one ministry position is
+    filled (i.e. ["JM", "FM"]), and personal data like name, age, gender ...
     """
 
     def __post_init__(self):
@@ -99,7 +55,6 @@ class Politician(
         Person.__post_init__(self)
         Person.get_sex(self)
         Person.get_age(self)
-        self.change_ward()
         if self.party_name in GERMAN_PARTIES:
             self.parties.append(
                 Party(self.party_name, self.party_entry, self.party_exit)
@@ -142,15 +97,6 @@ class Politician(
                 return True
         return False
 
-    def change_ward(self, ward=None):
-        if ward:
-            self.electoral_ward = ward
-        if self.electoral_ward not in ["ew", "Landesliste"]:
-            self.renamed_wards()
-            self.scrape_wiki_for_ward()
-        else:
-            self.electoral_ward = "ew"
-
 
 if __name__ == "__main__":
 
@@ -160,6 +106,5 @@ if __name__ == "__main__":
         "Gutherz",
         academic_title="Dr.",
         date_of_birth="1980",
-        electoral_ward="Köln I",
     )
     print(politician)
