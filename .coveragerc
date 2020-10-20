@@ -1,17 +1,21 @@
+[run]
+source = personroles
+omit = tests/*
+
+[paths]
+source = personroles/
+
 [build]
     nodes:
       coverage:
         tests:
           override:
-            - command: './run-rests.sh'
+            - command: 'pytest --cov=personroles --cov-report=term-missing'
+;            - command: './run-rests.sh'
               coverage:
                 file: '.coverage'
                 config_file: '.coveragerc'
                 format: 'py-cc'
-[run]
-source=personroles
-omit = tests/*
-
 [report]
 omit =
     *site-packages*
