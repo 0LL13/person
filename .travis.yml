@@ -1,8 +1,8 @@
 # Config file for automatic testing at travis-ci.com
 --- 
 after_script: 
-  - "$CCTR upload-coverage -r .coverage"
-  - "$CCTR after-build --exit-code $TRAVIS_TEST_RESULT"
+#   - "$CCTR upload-coverage -r .coverage"
+#   - "$CCTR after-build --exit-code $TRAVIS_TEST_RESULT"
   - "rm -f config/application.yml"
 after_success: 
   - coveralls
@@ -23,12 +23,12 @@ build:
     coverage: 
       tests: 
         override: 
-          - command: 'pytest'
 #           - command: './run-tests.sh'
+          - command: 'pytest'
             coverage: 
               file: '.coverage'
               config_file: '.coveragerc'
-              format: 'py-cc'
+#              format: 'py-cc'
 deploy: 
   distributions: "sdist bdist_wheel"
   provider: pypi
@@ -40,9 +40,9 @@ deploy:
 env: 
   global:
   - CODACY_PROJECT_TOKEN = c2999183e7844bb78ac468a4388306d0
-  - CC_TEST_REPORTER_ID = d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577
+#  - CC_TEST_REPORTER_ID = d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577
   - TOX_ENV = py38
-  - "GIT_COMMITTED_AT=$(if [ \"$TRAVIS_PULL_REQUEST\" == \"false\" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi) - CC_TEST_REPORTER_ID=d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577 - CCTR=./cc-test-reporter"
+#  - "GIT_COMMITTED_AT=$(if [ \"$TRAVIS_PULL_REQUEST\" == \"false\" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi) - CC_TEST_REPORTER_ID=d8b6d79f2be4dddc63b5feb3e4a607e7da5079babd5b52dd6c29c519845a6577 - CCTR=./cc-test-reporter"
 language: python
 python: 
   - "3.8"
