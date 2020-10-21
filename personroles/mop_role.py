@@ -94,7 +94,6 @@ class _MoP_base:
 
 @dataclass
 class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
-
     """
     Module mop_role.py covers the role as member of parliament.
 

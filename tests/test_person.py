@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # test_person.py
 """Tests for `person` package."""
+
 from dataclasses import dataclass
 
 import pytest

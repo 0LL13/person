@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """A set of dataclasses concerning roles of persons and their particulars."""
+
 import os
 import sys
 from dataclasses import dataclass, field
@@ -26,7 +27,6 @@ from personroles.resources.helpers import Party  # type: ignore # noqa
 
 @dataclass
 class _Politician_default:
-
     """Data about a politician's party and office(s)."""
     parties: List[str] = field(default_factory=lambda: [])
     minister: Optional[str] = field(default=None)
@@ -41,7 +41,6 @@ class Politician(
     helpers._Party_base,
     AttrDisplay,
 ):
-
     """
     A politician's basic data.
 

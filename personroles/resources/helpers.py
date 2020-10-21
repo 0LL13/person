@@ -9,12 +9,10 @@ from .constants import GERMAN_PARTIES  # type: ignore  # noqa
 
 
 class NotInRange(Exception):
-
     """For state NRW only terms 14 to currently term 17 are accepted."""
 
 
 class NotGermanParty(Exception):
-
     """Only German parties, this will most likely not change."""
 
 
@@ -136,12 +134,10 @@ class _Session_default:
 
 @dataclass
 class Session(_Session_default, _Session_base, AttrDisplay):
-
     """A session's details."""
 
 
 @dataclass
 class _Input_base:
-
     """A member of parliament's contribution."""
     key: str

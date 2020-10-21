@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # test_politician.py
 """Tests for `politician_role` module."""
+
 import pytest
 from context import helpers  # noqa
 from context import politician_role  # noqa

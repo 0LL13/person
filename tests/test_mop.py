@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # test_mop.py
 """Tests for `mop_role` module."""
+
 import pytest
 from context import helpers  # noqa
 from context import mop_role
