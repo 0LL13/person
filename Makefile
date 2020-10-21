@@ -48,7 +48,7 @@ clean-test: ## remove test and coverage artifacts
 	rm -fr .pytest_cache
 
 lint: ## check style with flake8
-#	flake8 person tests
+#	flake8 personroles tests
     @echo "\n${BLUE}Running Pylint against source and test files...${NC}\n"
     @pylint --rcfile=setup.cfg **/*.py
     @echo "\n${BLUE}Running Flake8 against source and test files...${NC}\n"
@@ -69,7 +69,7 @@ coverage: ## check code coverage quickly with the default Python
 	$(BROWSER) htmlcov/index.html
 
 docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/person.rst
+	rm -f docs/personroles.rst
 	rm -f docs/modules.rst
 	sphinx-apidoc -o docs/ personroles
 	$(MAKE) -C docs clean
@@ -91,7 +91,7 @@ install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
 
-MODULE := person
+MODULE := personroles
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 

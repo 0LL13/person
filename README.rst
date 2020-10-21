@@ -65,8 +65,8 @@ These roles have been sketched::
     Academic - academic_title
     Person - gender, born, age, deceased
     Noble - peer_title, peer_preposition
-    Politician - electoral_ward, ward_no, voter_count, minister, offices, party, parties
-    MoP - legislature, state, parl_pres, parl_vicePres
+    Politician - minister, offices, party, parties
+    MoP - legislature, state, electoral_ward, ward_no, voter_count, parl_pres, parl_vicePres
 
 Usage
 -----
