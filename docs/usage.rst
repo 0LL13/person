@@ -57,21 +57,18 @@ Using Politician::
     from personroles import politician_role
 
     politician = politician_role.Politician("SPD", "Bärbel", "Gutherz", academic_title="Dr.",
-                                   date_of_birth="1980", electoral_ward="Köln I")
+                                   date_of_birth="1980")
     print(politician)
 
     Politician:
     academic_title=Dr.
     age=40
     born=1980
-    electoral_ward=Köln I
     first_name=Bärbel
     gender=female
     last_name=Gutherz
     parties=[Party(party_name='SPD', party_entry='unknown', party_exit='unknown')]
     party_name=SPD
-    voter_count=121721
-    ward_no=13
 
     politician.add_Party("GRÜNE", party_entry="2017")
 
