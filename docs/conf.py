@@ -123,17 +123,17 @@ autoclass_content = "class"
 
 # doctest
 # -------
-#
+
 # doctest_global_setup = "from api_browser import *"
-#
-#
+
+
 # InterSphinx
 # -----------
-#
-# intersphinx_mapping = {
-#    "python": ("http://python.readthedocs.org/en/v2.7.2/", None),
-#    "sphinx": ("http://sphinx.readthedocs.org/en/latest/", None),
-# }
+
+intersphinx_mapping = {
+    "python": ("http://python.readthedocs.org/en/v2.7.2/", None),
+    "sphinx": ("http://sphinx.readthedocs.org/en/latest/", None),
+}
 
 # Output
 # ======
@@ -164,33 +164,33 @@ htmlhelp_basename = "personrolesdoc"
 
 # -- Options for LaTeX output ------------------------------------------
 
-latex_elements: Dict[str, str] = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #
-    # 'papersize': 'letterpaper',
-    # The font size ('10pt', '11pt' or '12pt').
-    #
-    # 'pointsize': '10pt',
-    # Additional stuff for the LaTeX preamble.
-    #
-    # 'preamble': '',
-    # Latex figure (float) alignment
-    #
-    # 'figure_align': 'htbp',
-}
+# latex_elements: Dict[str, str] = {
+# The paper size ('letterpaper' or 'a4paper').
+#
+# 'papersize': 'letterpaper',
+# The font size ('10pt', '11pt' or '12pt').
+#
+# 'pointsize': '10pt',
+# Additional stuff for the LaTeX preamble.
+#
+# 'preamble': '',
+# Latex figure (float) alignment
+#
+# 'figure_align': 'htbp',
+# }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass
 # [howto, manual, or own class]).
-latex_documents = [
-    (
-        master_doc,
-        "personroles.tex",
-        "personroles Documentation",
-        "Oliver Stapel",
-        "manual",
-    ),  # noqa
-]  # noqa
+# latex_documents = [
+#     (
+#         master_doc,
+#         "personroles.tex",
+#         "personroles Documentation",
+#         "Oliver Stapel",
+#         "manual",
+#     ),  # noqa
+# ]  # noqa
 
 
 # -- Options for manual page output ------------------------------------
@@ -205,14 +205,14 @@ man_pages = [(master_doc, "personroles", "personroles Documentation", [author], 
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
-texinfo_documents = [
-    (
-        master_doc,
-        "personroles",
-        "personroles Documentation",
-        author,
-        "personroles",
-        "A set of dataclasses concerning roles (academic, politician, ...) of persons.",  # noqa
-        "Miscellaneous",
-    ),
-]
+# texinfo_documents = [
+#     (
+#         master_doc,
+#         "personroles",
+#         "personroles Documentation",
+#         author,
+#         "personroles",
+#         "A set of dataclasses concerning roles (academic, politician, ...) of persons.",  # noqa
+#         "Miscellaneous",
+#     ),
+# ]
