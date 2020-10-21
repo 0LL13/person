@@ -121,14 +121,14 @@ autodoc_member_order = "alphabetical"
 autoclass_content = "class"
 
 
-## doctest
-## -------
+# doctest
+# -------
 #
 # doctest_global_setup = "from api_browser import *"
 #
 #
-## InterSphinx
-## -----------
+# InterSphinx
+# -----------
 #
 # intersphinx_mapping = {
 #    "python": ("http://python.readthedocs.org/en/v2.7.2/", None),
@@ -197,7 +197,7 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, "person", "personroles Documentation", [author], 1)]  # noqa
+man_pages = [(master_doc, "personroles", "personroles Documentation", [author], 1)]  # noqa
 
 
 # -- Options for Texinfo output ----------------------------------------
