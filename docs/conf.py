@@ -31,7 +31,7 @@ needs_sphinx = '1.7'
 extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.viewcode",
-    # Note: I added imgconverter to enable shpinx to change .svg to pdf !!!!!!!
+    # Note: I added imgconverter to enable shpinx to change .svg to pdf
     # I believe this was necessary when I added the file tree to my doc
     "sphinx.ext.imgconverter",
 ]
