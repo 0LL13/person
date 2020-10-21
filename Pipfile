@@ -23,6 +23,7 @@ pre-commit = "*"
 isort = "*"
 twine = "*"
 codacy-coverage = "*"
+sphinx = "*"
 
 [requires]
 python_version = "3.8"
