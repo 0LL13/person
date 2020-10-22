@@ -5,6 +5,9 @@
 ### .json Database ###
 .mop_db.json
 
+### archived files ###
+*.bak
+
 ### Executable ###
 *.app
 *.bat
