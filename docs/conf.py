@@ -306,7 +306,6 @@ context = {
     'docsearch_disabled': False,
     'user_analytics_code': '',
     'global_analytics_code': 'UA-17997319-1',
-    'commit': '4b013a69',
 }
 
 
