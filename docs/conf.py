@@ -292,22 +292,11 @@ context = {
     'github_repo': 'person',
     'github_version': 'master',
     'display_github': True,
-    'bitbucket_user': 'None',
-    'bitbucket_repo': 'None',
-    'bitbucket_version': 'master',
-    'display_bitbucket': False,
-    'gitlab_user': 'None',
-    'gitlab_repo': 'None',
-    'gitlab_version': 'master',
-    'display_gitlab': False,
     'READTHEDOCS': True,
     'new_theme': (html_theme == "sphinx_rtd_theme"),
     'ad_free': False,
     'docsearch_disabled': False,
-    'user_analytics_code': '',
-    'global_analytics_code': 'UA-17997319-1',
 }
-
 
 # if 'html_context' in globals():
 #     html_context.update(context)
