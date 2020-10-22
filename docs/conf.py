@@ -272,9 +272,9 @@ context = {
     'PRODUCTION_DOMAIN': "readthedocs.org",
     'versions': [("latest", "/en/latest/"), ],
     'downloads': [
-        ("pdf", "//person.readthedocs.io/_/downloads/en/latest/pdf/"),
+        #        ("pdf", "//person.readthedocs.io/_/downloads/en/latest/pdf/"),
         ("html", "//person.readthedocs.io/_/downloads/en/latest/htmlzip/"),
-        ("epub", "//person.readthedocs.io/_/downloads/en/latest/epub/"),
+        #        ("epub", "//person.readthedocs.io/_/downloads/en/latest/epub/"),  # noqa
     ],
     'subprojects': [
     ],
