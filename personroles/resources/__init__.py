@@ -29,5 +29,4 @@ Helper functions:
         _Speech_base:
             speech_key
         _Speech_default:
-            speech_content
-"""
+            speech_content"""

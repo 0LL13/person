@@ -14,25 +14,25 @@ add these directories to sys.path here. If the directory is relative to the
 documentation root, use os.path.abspath to make it absolute, like shown here.
 """
 
-# import os
-# import sys
 import importlib
+import os
 import os.path
+import sys
 from typing import Dict  # noqa
 
 # from six import string_types
 # from sphinx import version_info
 
-# PACKAGE_PARENT = ".."
-# DOCS_DIR = os.path.dirname(
-#    os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__)))
-# )  # isort:skip # noqa # pylint: disable=wrong-import-position
-# PROJECT_DIR = os.path.dirname(DOCS_DIR)
-# sys.path.insert(0, PROJECT_DIR)
-# sys.path.append(
-#     os.path.normpath(os.path.join(DOCS_DIR, PACKAGE_PARENT))
-# )  # isort: skip # noqa # pylint: disable=wrong-import-position
-#
+PACKAGE_PARENT = ".."
+DOCS_DIR = os.path.dirname(
+    os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__)))
+)  # isort:skip # noqa # pylint: disable=wrong-import-position
+PROJECT_DIR = os.path.dirname(DOCS_DIR)
+sys.path.insert(0, PROJECT_DIR)
+sys.path.append(
+    os.path.normpath(os.path.join(DOCS_DIR, PACKAGE_PARENT))
+)  # isort: skip # noqa # pylint: disable=wrong-import-position
+
 # from src import person  # noqa
 #
 # print(person.__path__)
@@ -300,13 +300,13 @@ context = {
 #     html_context = context
 
 # Add custom RTD extension
-if 'extensions' in globals():
-    # Insert at the beginning because it can interfere
-    # with other extensions.
-    # See https://github.com/rtfd/readthedocs.org/pull/4054
-    extensions.insert(0, "readthedocs_ext.readthedocs")
-else:
-    extensions = ["readthedocs_ext.readthedocs"]
+# if 'extensions' in globals():
+#     # Insert at the beginning because it can interfere
+#     # with other extensions.
+#     # See https://github.com/rtfd/readthedocs.org/pull/4054
+#     extensions.insert(0, "readthedocs_ext.readthedocs")
+# else:
+#     extensions = ["readthedocs_ext.readthedocs"]
 
 # Add External version warning banner to the external version documentation
 if 'branch' == 'external':

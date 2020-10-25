@@ -4,7 +4,7 @@
 
 import os
 import sys
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from typing import List, Optional
 
 PACKAGE_PARENT = ".."
@@ -107,3 +107,6 @@ if __name__ == "__main__":
         date_of_birth="1980",
     )
     print(politician)
+    print()
+
+    print(asdict(politician))

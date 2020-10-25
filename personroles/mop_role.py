@@ -4,8 +4,8 @@
 
 import os
 import sys
-from dataclasses import dataclass, field
-from typing import List, Optional, Set
+from dataclasses import asdict, dataclass, field
+from typing import List, Optional
 
 PACKAGE_PARENT = ".."
 SCRIPT_DIR = os.path.dirname(
@@ -18,12 +18,11 @@ sys.path.append(
 from personroles.politician_role import Politician  # type: ignore  # noqa
 from personroles.resources.helpers import AttrDisplay  # type: ignore # noqa
 from personroles.resources.helpers import NotInRange  # type: ignore # noqa
-from personroles.resources.mop_tinyDB import MopsDB  # type: ignore # noqa
+from personroles.resources.mop_tinyDB import Mops_TinyDB  # type: ignore # noqa
 
 
 @dataclass
 class _MoP_default:
-    key: str = field(default="")  # noqa
     electoral_ward: str = field(default="ew")
     ward_no: Optional[int] = field(default=None)
     voter_count: Optional[int] = field(default=None)
@@ -37,9 +36,6 @@ class _MoP_default:
     reactions: List[str] = field(
         default_factory=lambda: []
     )  # identifiers for reactions
-    membership: Set[str] = field(
-        default_factory=lambda: set()
-    )  # years like ["2010", "2011", ...]
 
     def renamed_wards(self):
         """Some electoral wards have been renamed in the Wikipedia."""
@@ -112,8 +108,6 @@ class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
         """
         if int(self.legislature) not in range(14, 18):
             raise NotInRange("Number for legislature not in range")
-        else:
-            self.membership.add(self.legislature)
         Politician.__post_init__(self)
         self.change_ward()
 
@@ -129,7 +123,7 @@ class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
 
 if __name__ == "__main__":
 
-    mop = MoP(
+    mop_1 = MoP(
         "14",
         "NRW",
         "SPD",  # type: ignore
@@ -139,14 +133,45 @@ if __name__ == "__main__":
         peer_title="Junker von",
         date_of_birth="1950",
     )
-    print(mop)
+    print(mop_1)
 
-    mop.add_Party("Grüne", party_entry="30.11.1999")
-    mop.change_ward("Düsseldorf II")
-    print(mop)
+    mop_1.add_Party("Grüne", party_entry="30.11.1999")
+    mop_1.change_ward("Düsseldorf II")
+    print(mop_1)
+    print()
 
-    print(mop.__dict__)
+    print(mop_1.__dict__)
+    print()
 
-    mop_db = MopsDB(".")
-    mop_key = mop_db.join(mop)
-    print(mop_db.fetch(mop_key))
+    # Dataclasses come with an asdict module:
+    # https://stackoverflow.com/a/35282286/6597765
+    print(asdict(mop_1))
+
+    db = Mops_TinyDB(".")
+    db.delete_all()
+    db.add_mop(asdict(mop_1))
+    mop_2 = MoP(
+        "15",
+        "NRW",
+        "Grüne",
+        "Sabine",
+        "Dingenskirchen",
+        electoral_ward="Essen II",
+        peer_preposition="von"
+    )
+    print(mop_2)
+
+    db.add_mop(asdict(mop_2))
+    field = "last_name"  # type: ignore
+    value = "Schwadronius"  # type: ignore
+    print(f"print(db.all(field={field}, value={value})):")
+    print(db.list_mops(field=field, value=value))
+    print()
+    print("-" * 50)
+    print("for item in db.list_mops()")
+    for item in db.list_mops():
+        print(item)
+        print()
+        for k, v in item.items():
+            print(f"{k}:{v}")
+        print()
