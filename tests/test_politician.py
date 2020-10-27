@@ -35,32 +35,26 @@ def test_politician_role(politician_fixture):
     ]  # noqa  # nosec
 
     with pytest.raises(helpers.NotGermanParty):
-        pol_4 = politician_role.Politician(
+        pol_1.add_Party("not_a_German_party")
+
+    with pytest.raises(helpers.NotGermanParty):
+        pol_2 = politician_role.Politician(
             "Thomas", "Gschwindner", "not_a_German_party"
         )  # noqa
 
-    pol_4 = politician_role.Politician("FDP", "Thomas", "Gschwindner")
-    pol_4.add_Party("FDP")
+    pol_2 = politician_role.Politician("FDP", "Thomas", "Gschwindner")
+    pol_2.add_Party("FDP")
 
-    assert pol_4.party_name == "FDP"  # nosec
-    assert pol_4.parties == [  # nosec
+    assert pol_2.party_name == "FDP"  # nosec
+    assert pol_2.parties == [  # nosec
         helpers.Party(
             party_name="FDP", party_entry="unknown", party_exit="unknown"
         )  # noqa  # nosec
     ]  # noqa  # nosec
 
-    pol_4.add_Party("not_a_German_party")
+    pol_2.add_Party("AfD")
 
-    assert pol_4.party_name == "FDP"  # nosec
-    assert pol_4.parties == [  # nosec
-        helpers.Party(
-            party_name="FDP", party_entry="unknown", party_exit="unknown"
-        )  # noqa  # nosec
-    ]  # noqa  # nosec
-
-    pol_4.add_Party("AfD")
-
-    assert pol_4.parties == [  # nosec
+    assert pol_2.parties == [  # nosec
         helpers.Party(
             party_name="FDP", party_entry="unknown", party_exit="unknown"
         ),  # noqa  # nosec
@@ -69,10 +63,10 @@ def test_politician_role(politician_fixture):
         ),  # noqa  # nosec
     ]
 
-    pol_4.add_Party("AfD", party_entry="2019")
+    pol_2.add_Party("AfD", party_entry="2019")
 
-    assert pol_4.party_entry == "2019"  # nosec
-    assert pol_4.parties == [  # nosec
+    assert pol_2.party_entry == "2019"  # nosec
+    assert pol_2.parties == [  # nosec
         helpers.Party(
             party_name="FDP", party_entry="unknown", party_exit="unknown"
         ),  # noqa  # nosec
@@ -81,12 +75,21 @@ def test_politician_role(politician_fixture):
         ),  # noqa  # nosec
     ]
 
-    pol_4.add_Party("AfD", party_entry="2019", party_exit="2020")
+    pol_2.add_Party("AfD", party_entry="2019", party_exit="2020")
 
-    assert pol_4.party_exit == "2020"  # nosec
-    assert pol_4.parties == [  # nosec
+    assert pol_2.party_exit == "2020"  # nosec
+    assert pol_2.parties == [  # nosec
         helpers.Party(
             party_name="FDP", party_entry="unknown", party_exit="unknown"
         ),  # noqa  # nosec
         helpers.Party(party_name="AfD", party_entry="2019", party_exit="2020"),
     ]
+
+    pol_2.parties = [
+        {"party_name": "SPD", "party_entry": "unknown", "party_exit": "unknown"},  # noqa
+        {"party_name": "Grüne", "party_entry": "2016", "party_exit": "unknown"}
+    ]
+    pol_2._change_dict_to_Party()
+
+    for party in pol_2.parties:
+        assert isinstance(party, helpers.Party)  # nosec

@@ -23,6 +23,7 @@ from personroles.resources.mop_tinyDB import Mops_TinyDB  # type: ignore # noqa
 
 @dataclass
 class _MoP_default:
+    mop_id: int = field(default=0)
     electoral_ward: str = field(default="ew")
     ward_no: Optional[int] = field(default=None)
     voter_count: Optional[int] = field(default=None)
@@ -170,8 +171,9 @@ if __name__ == "__main__":
     print("-" * 50)
     print("for item in db.list_mops()")
     for item in db.list_mops():
-        print(item)
-        print()
-        for k, v in item.items():
-            print(f"{k}:{v}")
-        print()
+        # convert dict back to dataclass:
+        # https://www.reddit.com/r/learnpython/comments/9h74no/convert_dict_to_dataclass/e69p8m8?utm_source=share&utm_medium=web2x&context=3  # noqa
+        mop = MoP(**item)
+        print(mop)
+
+    os.remove("./.mops_db.json")

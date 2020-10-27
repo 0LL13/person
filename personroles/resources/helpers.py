@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """Helper functions: exceptions, print style, Party, ..."""
-import random
 from dataclasses import dataclass, field
+# import random
 from typing import List
 
 from .constants import GERMAN_PARTIES  # type: ignore  # noqa
@@ -90,19 +90,19 @@ class Party(_Party_default, _Party_base, AttrDisplay):
 
 
 # https://codereview.stackexchange.com/questions/200355/generating-a-unique-key
-def generate_unique_key():
-    lst = list()
-    for letter in range(97, 123):
-        lst.append(chr(letter))
-    for letter in range(65, 91):
-        lst.append(chr(letter))
-    for number in range(1, 10):
-        lst.append(number)
-
-    random_values = random.sample(lst, 5)
-    print(random_values)
-    random_values = map(lambda x: str(x), random_values)
-    return "".join(random_values)
+# def generate_unique_key():
+#     lst = list()
+#     for letter in range(97, 123):
+#         lst.append(chr(letter))
+#     for letter in range(65, 91):
+#         lst.append(chr(letter))
+#     for number in range(1, 10):
+#         lst.append(number)
+#
+#     random_values = random.sample(lst, 5)
+#     print(random_values)
+#     random_values = map(lambda x: str(x), random_values)
+#     return "".join(random_values)
 
 
 @dataclass

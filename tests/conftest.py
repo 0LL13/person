@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 # conftest.py
 import logging
+import time
+from dataclasses import asdict
 
 import pytest
+from context import mop_role, mop_tinyDB
 
 LOGGER = logging.getLogger(__name__)
 
@@ -84,12 +87,48 @@ def standardize_name_fixture():
     LOGGER.info("Tearing Down StandardizeName Fixture ...")
 
 
-# https://stackoverflow.com/a/51742499/6597765
-# @pytest.fixture(scope="function")
-# def cleanup_file_fixture(monkeypatch):
-#     files = []
-#     monkeypatch.setattr(builtins, 'open', patch_open(builtins.open, files))
-#     monkeypatch.setattr(io, 'open', patch_open(io.open, files))
-#     yield
-#     for file in files:
-#         os.remove(file)
+@pytest.fixture(scope="function")
+def mops_db_fixture(tmpdir):
+    "Connect to DB before test, disconnect after."""
+    db = mop_tinyDB.start_mops_db(str(tmpdir))
+    db.delete_all()
+    yield db
+    mop_tinyDB.stop_mops_db(str(tmpdir))
+
+
+@pytest.fixture(scope="session")
+def mops_db_session(tmpdir_factory):
+    "Connect to DB before session, disconnect after."""
+    db = mop_tinyDB.start_mops_db(str(tmpdir_factory))
+    db.delete_all()
+    yield db
+    mop_tinyDB.stop_mops_db(str(tmpdir_factory))
+
+
+@pytest.fixture()
+def three_mops_fixture():
+    """Three members of parliament."""
+    return[
+        mop_role.MoP("14", "NRW", "SPD", "Hans", "Maier"),
+        mop_role.MoP("15", "NRW", "Grüne", "Johanna", "Gsell"),
+        mop_role.MoP("16", "NRW", "Piraten", "Klaus", "Störtebekker")]
+
+
+@pytest.fixture(scope="function")
+def db_with_3_mops(tmpdir, mops_db_fixture, three_mops_fixture):
+    """Return DB with three mops."""
+    db = mop_tinyDB.start_mops_db(str(tmpdir))
+    for mop in three_mops_fixture:
+        db.add_mop(asdict(mop))
+    yield db
+    mop_tinyDB.stop_mops_db(str(tmpdir))
+
+
+@pytest.fixture(autouse=True)
+def footer_function_scope():
+    """Report test durations after each function."""
+    start = time.time()
+    yield
+    stop = time.time()
+    delta = stop - start
+    print(f"\ntest duration: {delta:0.3}")

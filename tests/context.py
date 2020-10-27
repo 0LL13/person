@@ -18,6 +18,7 @@ from personroles import (  # type: ignore # isort:skip # noqa # pylint: disable=
 from personroles.resources import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
     constants,
     helpers,
+    mop_tinyDB,
 )
 from personroles import (  # type: ignore # isort:skip # noqa # pylint: disable=unused-import, wrong-import-position
     mop_role,

@@ -26,7 +26,7 @@ class Mops_TinyDB():
     def add_mop(self, mop: dict) -> int:
         """Add a mop dict to DB."""
         mop_id = self._db.insert(mop)
-        mop['id'] = mop_id
+        mop["mop_id"] = mop_id
         self._db.update(mop, doc_ids=[mop_id])
         return mop_id
 
@@ -67,9 +67,10 @@ class Mops_TinyDB():
             i += 1
         return i
 
-    def stop_mops_db(self):
-        """Disconnect from DB."""
-        pass
+
+def stop_mops_db(db_path: str) -> None:
+    """Disconnect from DB."""
+    pass
 
 
 def start_mops_db(db_path: str) -> Mops_TinyDB:
