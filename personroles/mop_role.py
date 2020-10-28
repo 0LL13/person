@@ -124,16 +124,17 @@ class MoP(_MoP_default, Politician, _MoP_base, AttrDisplay):
 
 if __name__ == "__main__":
 
-    mop_1 = MoP(
-        "14",
-        "NRW",
-        "SPD",  # type: ignore
-        "Tom",  # type: ignore
-        "Schwadronius",
-        party_entry="1990",  # type: ignore
-        peer_title="Junker von",
-        date_of_birth="1950",
-    )
+    mop_1 = MoP("14", "NRW", "SPD", "Tom", "Schwadronius", party_entry="1990",
+                peer_title="Junker von", date_of_birth="1950")
+    mop_2 = MoP("15", "NRW", "Grüne", "Sabine", "Dingenskirchen",
+                electoral_ward="Essen II", peer_preposition="von")
+    mop_3 = MoP("15", "NRW", "Grüne", "Sammy", "Goodwill",
+                electoral_ward="Duisburg II", academic_title="Dr")
+    mop_4 = MoP("15", "NRW", "FDP", "Ralf", "Witzel",
+                electoral_ward="Essen III")
+    mop_5 = MoP("16", "NRW", "SPD", "Horst", "Schmitt",
+                electoral_ward="Düsseldorf III")
+
     print(mop_1)
 
     mop_1.add_Party("Grüne", party_entry="30.11.1999")
@@ -151,15 +152,6 @@ if __name__ == "__main__":
     db = Mops_TinyDB(".")
     db.delete_all()
     db.add_mop(asdict(mop_1))
-    mop_2 = MoP(
-        "15",
-        "NRW",
-        "Grüne",
-        "Sabine",
-        "Dingenskirchen",
-        electoral_ward="Essen II",
-        peer_preposition="von"
-    )
     print(mop_2)
 
     db.add_mop(asdict(mop_2))
@@ -175,5 +167,37 @@ if __name__ == "__main__":
         # https://www.reddit.com/r/learnpython/comments/9h74no/convert_dict_to_dataclass/e69p8m8?utm_source=share&utm_medium=web2x&context=3  # noqa
         mop = MoP(**item)
         print(mop)
+
+    db.add_mop(asdict(mop_3))
+    db.add_mop(asdict(mop_4))
+    db.add_mop(asdict(mop_5))
+
+    field = "party_name"  # type: ignore
+    value = "Grüne"
+
+    print("-" * 50)
+    print("for item in db.list_mops(field=party_name, value=Grüne):")
+    for item in db.list_mops(field=field, value=value):
+        # convert dict back to dataclass:
+        # https://www.reddit.com/r/learnpython/comments/9h74no/convert_dict_to_dataclass/e69p8m8?utm_source=share&utm_medium=web2x&context=3  # noqa
+        mop = MoP(**item)
+        print(mop)
+
+    field = "party_name"  # type: ignore
+    value = "SPD"
+
+    print("-" * 50)
+    print("for item in db.list_mops(field=party_name, value=SPD):")
+    for item in db.list_mops(field=field, value=value):
+        # convert dict back to dataclass:
+        # https://www.reddit.com/r/learnpython/comments/9h74no/convert_dict_to_dataclass/e69p8m8?utm_source=share&utm_medium=web2x&context=3  # noqa
+        mop = MoP(**item)
+        print(mop)
+
+    print("-" * 50)
+    print("db.get_mop(mop_id=2):")
+    item = db.get_mop(mop_id=2)
+    mop = MoP(**item)
+    print(mop)
 
     os.remove("./.mops_db.json")

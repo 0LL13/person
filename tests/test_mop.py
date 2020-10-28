@@ -10,7 +10,7 @@ from context import mop_role
 # pylint: disable=redefined-outer-name
 
 
-def test_mop_role(mop_fixture):
+def test_mop_role():
     # pylint: disable=W0612, W0613
 
     mop_1 = mop_role.MoP(
@@ -99,7 +99,7 @@ def test_mop_role(mop_fixture):
     assert mop_5.voter_count == 104181  # nosec
 
 
-def test_person_NotInRangeError(notinrange_fixture):
+def test_person_NotInRangeError():
     # pylint: disable=W0612, W0613
     mop = mop_role.MoP
 

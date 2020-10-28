@@ -10,7 +10,7 @@ from context import politician_role  # noqa
 # pylint: disable=redefined-outer-name
 
 
-def test_politician_role(politician_fixture):
+def test_politician_role():
     # pylint: disable=W0612, W0613
 
     pol_1 = politician_role.Politician(

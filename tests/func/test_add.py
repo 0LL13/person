@@ -19,5 +19,12 @@ def test_add_returns_valid_id(mops_db_fixture):
 def test_add_increases_count(db_with_3_mops):
     """Test add_mop() affect on mop_db.count()."""
     db = db_with_3_mops
-    db.add_mop(asdict(new_mop))
-    assert db.count() == 4  # nosec
+    mop_id = db.add_mop(asdict(new_mop))
+    assert db.count() == mop_id  # nosec
+
+
+def test_add_returns_correct_id(db_with_3_mops):
+    """Test add_mop() affect on mop_db.count()."""
+    db = db_with_3_mops
+    mop_id = db.add_mop(asdict(new_mop))
+    assert mop_id == 4  # nosec

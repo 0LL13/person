@@ -45,7 +45,7 @@ def test_person_Name_para(n):
     assert equivalent_names(name, n)  # nosec
 
 
-def test_person_Name(name_fixture):
+def test_person_Name():
     # pylint: disable=W0612, W0613
 
     name = person.Name("Alfons-Reimund Horst Emil", "Boeselager")
@@ -55,7 +55,7 @@ def test_person_Name(name_fixture):
     assert name.last_name == "Boeselager"  # nosec
 
 
-def test_person_Academic(academic_fixture):
+def test_person_Academic():
     # pylint: disable=W0612, W0613
 
     academic = person.Academic(
@@ -82,7 +82,7 @@ def test_person_Academic(academic_fixture):
     assert academic.academic_title == "B. A."  # nosec
 
 
-def test_person_Noble(noble_fixture):
+def test_person_Noble():
     # pylint: disable=W0612, W0613
 
     noble = person.Noble("Sepp Theo", "Müller", peer_title="von und zu")
@@ -108,7 +108,7 @@ def test_person_Noble(noble_fixture):
     assert noble.peer_preposition == "von"  # nosec
 
 
-def test_person_Person(person_fixture):
+def test_person_Person():
     # pylint: disable=W0612, W0613
 
     pers = person.Person(
@@ -142,7 +142,7 @@ def test_person_Person(person_fixture):
     assert pers.date_of_death == "22.10.2019"  # nosec
 
 
-def test_person_TooManyFirstNames(toomanyfirstnames_fixture):
+def test_person_TooManyFirstNames():
     # pylint: disable=W0612, W0613
 
     name = person.Name
@@ -150,7 +150,7 @@ def test_person_TooManyFirstNames(toomanyfirstnames_fixture):
         name("Alfons-Reimund Horst Emil Pupsi", "Schulze")
 
 
-def test_person_AttrDisplay(capsys, attrdisplay_fixture):
+def test_person_AttrDisplay(capsys):
     # pylint: disable=W0612, W0613
 
     @dataclass
