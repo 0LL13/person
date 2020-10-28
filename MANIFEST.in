@@ -13,7 +13,6 @@ recursive-include docs *.rst conf.py Makefile make.bat *.jpg *.png *.gif
 
 # added by check_manifest.py
 include *.py
-include *.bak
 includ *.json
 include *.txt
 include *.yml
