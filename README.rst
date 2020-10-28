@@ -162,7 +162,7 @@ Fork and improve.
 Planned
 -------
 
-Add TinyDB database.
+Fork and repeat with different roles.
 
 Warranty
 --------

@@ -268,14 +268,14 @@ context = {
     'PRODUCTION_DOMAIN': "readthedocs.org",
     'versions': [("latest", "/en/latest/"), ],
     'downloads': [
-        ("pdf", "//person.readthedocs.io/_/downloads/en/latest/pdf/"),
+        # ("pdf", "//person.readthedocs.io/_/downloads/en/latest/pdf/"),
         ("html", "//person.readthedocs.io/_/downloads/en/latest/htmlzip/"),
-        ("epub", "//person.readthedocs.io/_/downloads/en/latest/epub/"),  # noqa
+        # ("epub", "//person.readthedocs.io/_/downloads/en/latest/epub/"),  # noqa
     ],
     'subprojects': [
     ],
-    'slug': 'person',
-    'name': u'person',
+    'slug': 'personroles',
+    'name': u'personroles',
     'rtd_language': u'en',
     'programming_language': u'words',
     'canonical_url': 'https://person.readthedocs.io/en/latest/',
