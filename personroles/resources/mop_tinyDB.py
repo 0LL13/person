@@ -20,9 +20,12 @@ sys.path.append(
 class Mops_TinyDB():
     """Wrapper class for TinyDB."""
 
-    def __init__(self, db_path):
+    def __init__(self, db_path, db_name=None):
         """Connect to DB."""
-        self._db = tinydb.TinyDB(db_path + "mops_db.json")
+        if db_name is None:
+            self._db = tinydb.TinyDB(db_path + "db.json")
+        else:
+            self._db = tinydb.TinyDB(db_path + db_name)
 
     def add_mop(self, mop: dict) -> int:
         """Add a mop dict to DB."""

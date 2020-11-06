@@ -25,6 +25,7 @@ twine = "*"
 codacy-coverage = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
+pre-commit-hooks = "*"
 
 [requires]
 python_version = "3.8"

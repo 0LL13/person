@@ -33,6 +33,7 @@ Overview
 
     .. image:: https://pyup.io/repos/github/0LL13/person/shield.svg
         :target: https://pyup.io/repos/github/0LL13/person/
+        :alt: Updates
 
     .. image:: https://img.shields.io/github/issues-pr/0LL13/person
         :target: https://github.com/0LL13/person/pulls
@@ -41,7 +42,7 @@ Overview
         :target: https://github.com/PyCQA/bandit
 
 :docs:
-    .. image:: https://readthedocs.org/projects/person/badge/?version=latest
+    .. image:: https://readthedocs.org/projects/personroles/badge/?version=latest
         :target: https://person.readthedocs.io/en/latest/?badge=latest
 
     .. image:: https://img.shields.io/github/license/0LL13/person
